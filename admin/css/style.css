@@ -1,0 +1,131 @@
+*{
+    margin:0px;
+    border:0px;
+    padding:0px;
+
+}
+.ml-auto{
+    margin-left:auto;
+}
+.mr{
+    margin-right:5px;
+}
+.mnt{
+    /*margin-top:-52px;*/
+    margin-top:-5.1%;
+}
+.ma{
+    margin:auto;
+}
+
+.grid-1{
+    width:10%;
+}
+.grid-2{
+    width:20%;
+}
+.grid-3{
+    width:30%;
+}
+.grid-4{
+    width:40%;
+}
+.grid-5{
+    width:50%;
+}
+.grid-6{
+    width:60%;
+}
+.grid-7{
+    width:70%;
+}
+.grid-8{
+    width:80%;
+}
+.grid-9{
+    width:90%;
+}
+.grid-10{
+    width:100%;
+}
+.bg-grey{
+    background:#ebebe0;
+}
+.bg-title{
+    background:#999966;
+}
+.red{
+    background:#ff1a1a;
+}
+.float-right{
+    float:right;
+}
+.text-decoration{
+    text-decoration:none;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
+.red:hover{
+    background:#e60000;
+}
+
+
+/*.ul {*/
+    /*list-style-type: none;*/
+    /*margin: 0;*/
+    /*padding: 0;*/
+    /*width: 200px;*/
+    /*background-color: #f1f1f1;*/
+/*}*/
+
+/*.li .a {*/
+    /*display: block;*/
+    /*color: #000;*/
+    /*padding: 8px 16px;*/
+    /*text-decoration: none;*/
+/*}*/
+
+/*!* Change the link color on hover *!*/
+/*.li .a:hover {*/
+    /*background-color: #555;*/
+    /*color: white;*/
+/*}*/
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+th{
+    color:white;
+}
+tr td:hover{background-color:#d6d6c2;}
