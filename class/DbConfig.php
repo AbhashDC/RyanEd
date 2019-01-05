@@ -11,7 +11,8 @@ Class dbConnect
     public function dbConnection()
     {
          $this->db=new mysqli(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
-       // $this->db=new mysqli("localhost","root","","vtg");
+//        $dbConn = new PDO("mysql:host={DB_SERVER};dbname={DB_DATABASE}", DB_USERNAME, DB_PASSWORD);
+//        $dbConn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 }
 

@@ -23,7 +23,41 @@ class displayProduct extends dbConnect
 
     public function search($category)
     {
+        $getArray=array();
+        dbConnect::dbConnection();
+        $sql="SELECT * FROM product WHERE category LIKE '%".$category."%'";
+        $result=mysqli_query($this->db,$sql);
+        while($var=mysqli_fetch_array($result))
+        {
+            $getArray[]=$var;
+        }
+        return $getArray;
+    }
 
+    public function findId($id)
+    {
+        $getArray=array();
+        dbConnect::dbConnection();
+        $sql="SELECT * FROM product WHERE id =$id";
+        $result=mysqli_query($this->db,$sql);
+        while($var=mysqli_fetch_array($result))
+        {
+            $getArray[]=$var;
+        }
+        return $getArray;
+    }
+
+    public function getReview($id)
+    {
+        $getArray=array();
+        dbConnect::dbConnection();
+        $sql="SELECT * FROM review WHERE product_id = $id";
+        $result=mysqli_query($this->db,$sql);
+        while($var=mysqli_fetch_array($result))
+        {
+            $getArray[]=$var;
+        }
+        return $getArray;
     }
 
 

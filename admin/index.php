@@ -1,9 +1,10 @@
 <?php include_once('include/_header.php'); ?>
+
 <div class="grid-10">
 <ul>
     <li><a class="active" href="index.php">Products</a></li>
-    <li><a href="categories.php">Categories</a></li>
-    <li><a href="contact.php">Featured</a></li>
+    <li><a href="categories.php">Admin</a></li>
+
     <li><a href="logout.php" class="red">Logout</a></li>
 </ul>
 </div>
@@ -43,6 +44,15 @@
             Action
         </th>
     </tr>
+
+
+    <?php
+    $displayCat=($category->getCategory());
+    foreach($displayCat as  $displays){
+        ?>
+
+        <li><a href="index.php?category=<?php  echo $displays['category']; ?>"><?php  echo $displays['category']; ?></a></li>
+    <?php }?>
 
     <tr>
         <td>

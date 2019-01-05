@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2019 at 10:20 AM
+-- Generation Time: Jan 05, 2019 at 06:43 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -83,8 +83,8 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `title`, `price`, `manufacturer`, `description`, `category`, `status`, `featured`, `img_name`, `img_ext`, `date`) VALUES
-(1, 'PenDrive', 2000, 'Dell', 'lajflafdla9', 'storage', 1, 1, NULL, NULL, '2019-01-09'),
-(2, 'PenDrive', 2000, 'Dell', 'lajflafdla8', 'storage', 1, 1, NULL, NULL, '2019-01-08'),
+(1, 'PenDrive', 2000, 'Dell', 'lajflafdla9', 'computer', 1, 1, NULL, NULL, '2019-01-09'),
+(2, 'PenDrive', 2000, 'Dell', 'lajflafdla8', 'phones', 1, 1, NULL, NULL, '2019-01-08'),
 (3, 'PenDrive', 2000, 'Dell', 'lajflafdla', 'storage', 1, 1, NULL, NULL, NULL),
 (4, 'PenDrive', 2000, 'Dell', 'lajflafdla', 'storage', 1, 1, NULL, NULL, NULL),
 (5, 'PenDrive', 2000, 'Dell', 'lajflafdla', 'storage', 1, 1, NULL, NULL, NULL),
@@ -100,10 +100,17 @@ INSERT INTO `product` (`id`, `title`, `price`, `manufacturer`, `description`, `c
 CREATE TABLE `review` (
   `id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `user_name` varchar(250) NOT NULL,
   `review` text NOT NULL,
   `date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `review`
+--
+
+INSERT INTO `review` (`id`, `product_id`, `user_name`, `review`, `date`) VALUES
+(1, 1, 'Abhash', 'THis is very nice yes i likes', '2019-01-17 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -118,6 +125,13 @@ CREATE TABLE `user` (
   `password` varchar(250) NOT NULL,
   `address` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `name`, `email`, `password`, `address`) VALUES
+(1, 'Abhash', 'abhash_dc99@outlook.com', 'apple', 1);
 
 --
 -- Indexes for dumped tables

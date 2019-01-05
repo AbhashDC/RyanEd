@@ -24,3 +24,7 @@ li a:hover {
 }
 ----used from w3schools  https://www.w3schools.com/css/css_navbar.asp
 ..
+
+https://www.youtube.com/watch?v=kEW6f7Pilc4------Learnt pdo
+
+https://stackoverflow.com/questions/16463030/how-to-add-facebook-share-button-on-my-website --sharebutton

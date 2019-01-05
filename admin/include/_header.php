@@ -10,3 +10,4 @@
 
 </head>
 <body>
+<?php include_once('class/ClassAdminProduct.php'); ?>

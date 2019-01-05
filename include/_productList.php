@@ -1,22 +1,16 @@
 <h2>Product list</h2>
 
 <ul class="products">
-<!--    --><?php
-//    if ($_SERVER['REQUEST_METHOD'] == 'GET')
-//    {
-//        include('class/ClassUser.php');
-//        $user=new User();
-//        extract($_POST);
-//        $user->userLogin($name,$password);
-//    }
-//    ?>
+
     <?php
     if ((@$_GET['category']) == '' || null)
     {
         $displayCat=($product->getProduct());
 
     }
-    else{$displayCat=($product->search($category));}
+    else{
+        $category=$_GET['category'];
+        $displayCat=($product->search($category));}
 
 
 

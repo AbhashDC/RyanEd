@@ -6,6 +6,13 @@ include_once('class/ClassCategory.php');
 $product=new displayProduct();
 $category=new displayCategory();
 
+    if ($_SERVER['REQUEST_METHOD'] == 'POST')
+    {
+        include('class/ClassUser.php');
+        $user=new User();
+        extract($_POST);
+        $user->userLogin($name,$password);
+    }
 
 ?>
 <html>
@@ -29,7 +36,7 @@ $category=new displayCategory();
                 foreach($displayCat as  $displays){
                 ?>
 
-                <li><a href="product.php?category=<?php  echo $displays['id']; ?>"><?php  echo $displays['category']; ?></a></li>
+                <li><a href="index.php?category=<?php  echo $displays['category']; ?>"><?php  echo $displays['category']; ?></a></li>
                 <?php }?>
             </ul>
         </li>
