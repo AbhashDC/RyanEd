@@ -1,17 +1,30 @@
 <!doctype html>
 
 <?php
+
 include_once('class/ClassProduct.php');
 include_once('class/ClassCategory.php');
+include_once('class/ClassUser.php');
 $product=new displayProduct();
 $category=new displayCategory();
+$user=new userActivity();
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
-        include('class/ClassUser.php');
-        $user=new User();
         extract($_POST);
-        $user->userLogin($name,$password);
+        if($type=="review")
+        {
+
+          $user->userReview($review,$id);
+        }
+        if($type=="login")
+        {
+          $user->userLogin($email,$password);
+        }
+        if($type=="register")
+        {
+            $user->userRegister($name,$email,$password,$address);
+        }
     }
 
 ?>
@@ -44,6 +57,13 @@ $category=new displayCategory();
     </ul>
 
     <address>
+        <p> <?php if(@$_SESSION['uid']==""){ ?>
+                <a href="login.php" class="red">Login</a>|<a href="register.php" class="yellow">Register</a></p>
+        <?php }
+        else{ ?>
+            logged in <?php echo $_SESSION['uname']; ?>
+            <?php
+        }?>
         <p>We are open 9-5, 7 days a week. Call us on
             <strong>01604 11111</strong>
         </p>

@@ -1,8 +1,5 @@
 <h2>Product Page</h2>
 
-
-
-
 <?php
 if ((@$_GET['id']) == '' || null)
 {
@@ -22,14 +19,16 @@ foreach($displayId as  $showProduct){
     </li>
 
 <?php }?>
+
 <h4>Write a review?</h4>
 <form method="post" action="">
-    <textarea rows="5" cols="300">
-
+    <textarea rows="5" cols="300" name="review" required>
     </textarea>
     <input type="hidden" name="type" value="review">
+    <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
     <input type="submit" value="Submit">
 </form>
+
 <h4>User Review</h4>
 <ul class="reviews">
 <?php foreach($displayReview as  $showReview){

@@ -5,53 +5,72 @@ ob_start();
 
 include_once('DbConfig.php');
 
-class fUser
+ class userActivity extends dbconnect
 {
+     public function userRegister($name,$email,$password,$address)
+     {
+         dbConnect::dbConnection();
+         $encPassword=md5($password);
+         $sqlCheck="SELECT * FROM user WHERE email='$email'";
+         $check=mysqli_query($this->db,$sqlCheck);
+         if(mysqli_num_rows($check) <= 0){
+             $sqlReg="INSERT INTO user SET name='$name',email='$email',password='$encPassword',address='$address'";
+             $result=mysqli_query($this->db,$sqlReg);
+             if($result)
+             {
+                 echo"<script> alert('Account Created');</script>";
+                 //header('location: index.php?sidebar=dashboard');
 
-    public function userLogin($name,$password)
+             }
+         }
+         else{
+             echo"<script> alert('Account with that email already exists!');</script>";
+         }
+
+     }
+
+    public function userLogin($email,$password)
     {
-        // dbConnect::dbConnection();
-        // $npassword=$_POST['password'];
-        $epassword=md5($password);
-        //$db=new mysqli("localhost","root","","vtg");
-        $sql5="SELECT * FROM user WHERE (name='$name' or email='$name' or contact='$name') AND password='$epassword'";
+         dbConnect::dbConnection();
+         $encPassword=md5($password);
+         $sql5="SELECT * FROM user WHERE email='$email'  AND password='$encPassword'";
         $result=mysqli_query($this->db,$sql5);
-        while($row=mysqli_fetch_array($result))
-        {
-            $_SESSION['id']=$row['id'];
-            $_SESSION['username']=$row['username'];
-            $_SESSION['fname']=$row['first_name'];
-            $_SESSION['lname']=$row['last_name'];
-            $_SESSION['image']=$row['image'];
-            $_SESSION['admintype']=$row['type'];
-            $admintype=$row['type'];
-            $_SESSION['vendor']=$row['vtype'];
-            $_SESSION['company']=$row['company_name'];
-            header('location: index.php?sidebar=dashboard');
-
-        }
-
-
-
-        if($count_row)
-        {
-
-            $_SESSION['cus_id']=$row['cid'];
-            $_SESSION['cus_username']=$row['cusername'];
-            $_SESSION['cus_fname']=$row['cfirst_name'];
-            $_SESSION['cus_lname']=$row['clast_name'];
-            $_SESSION['cus_image']=$row['cimage'];
-            $_SESSION['cus_email']=$row['cemail'];
-            $sescusid= $_SESSION['cus_id'];
-            $_SESSION['count']=0;
-            //  header("Location: productdetail.php?id=$sesid");
-            header('Location: '.$_SERVER['PHP_SELF']);
-            die;
+        if($result){
+            echo "<script>alert('Logged In');</script>";
         }
         else{
-            echo "<script>alert('Wrong user details');</script>";
+            echo "<script>alert('Couldnt logIn');</script>";
         }
+        while($row=mysqli_fetch_array($result))
+        {
+            $_SESSION['uid']=$row['id'];
+            $_SESSION['uname']=$row['name'];
+            header('location: index.php');
+
+        }
+
+
     }
+     public function userReview($review,$id)
+     {
+
+         if($_SESSION['id']==""){
+             echo "<script>alert('please login'); </script>";
+             //header('location:product.php?id='.$id.''); die;
+         }
+         else {
+
+             dbConnect::dbConnection();
+             $user_id = $_SESSION['uid'];
+             $user_name = $_SESSION['uname'];
+             $date = date("Y-m-d");
+             $sql5 = "INSERT INTO review SET  product_id=$id,user_name='$user_name', user_id=$user_id, review='$review', `date`='$date'";
+             $result = mysqli_query($this->db, $sql5);
+             if ($result) {
+                 echo "<script> alert('Review is saved');</script>";
+             }
+         }
+     }
 
 
 

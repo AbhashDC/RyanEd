@@ -3,15 +3,16 @@
 
     <br>
     <form action="" method="post">
-        <p>Log In</p>
+        <p>Register</p>
+        <label>Name</label> <input type="text" name="name" />
         <label>Email</label> <input type="email" name="email" />
         <label>Password</label> <input type="password" name="password" />
+        <label>Address</label> <input type="text" name="address" />
+        <input type="hidden" name="type" value="register" />
         <input type="submit" name="submit" value="submit" />
-        <input type="hidden" name="type" value="login" />
         <hr><hr>
-        <label>Not a member?</label>
-        <a href="register.php"><input type="button" name="submit" value="Register" /></a>
-
+       <label>Already a member?</label>
+        <a href="login.php"><input type="button" name="submit" value="Login" /></a>
     </form>
     <hr />
 
