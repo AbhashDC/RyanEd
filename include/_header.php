@@ -14,7 +14,6 @@ $user=new userActivity();
         extract($_POST);
         if($type=="review")
         {
-
           $user->userReview($review,$id);
         }
         if($type=="login")
@@ -23,10 +22,14 @@ $user=new userActivity();
         }
         if($type=="register")
         {
-            $user->userRegister($name,$email,$password,$address);
+          $user->userRegister($name,$email,$password,$address);
         }
     }
-
+//if ($_SERVER['REQUEST_METHOD'] == 'GET')
+//{
+//    extract($_GET);
+//    @$searchResult=$product->searchItems($search);
+//}
 ?>
 <html>
 <head>

@@ -46,13 +46,13 @@
     </tr>
 
 
-    <?php
-    $displayCat=($category->getCategory());
-    foreach($displayCat as  $displays){
-        ?>
-
-        <li><a href="index.php?category=<?php  echo $displays['category']; ?>"><?php  echo $displays['category']; ?></a></li>
-    <?php }?>
+<!--    --><?php
+//    $displayCat=($category->getCategory());
+//    foreach($displayCat as  $displays){
+//        ?>
+<!---->
+<!--        <li><a href="index.php?category=--><?php // echo $displays['category']; ?><!--">--><?php // echo $displays['category']; ?><!--</a></li>-->
+<!--    --><?php //}?>
 
     <tr>
         <td>

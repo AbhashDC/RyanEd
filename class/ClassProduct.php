@@ -60,6 +60,41 @@ class displayProduct extends dbConnect
         return $getArray;
     }
 
+    public function getUserReview($id)
+    {
+        $getArray=array();
+        dbConnect::dbConnection();
+        $sql="SELECT * FROM review WHERE user_id = $id";
+        $result=mysqli_query($this->db,$sql);
+        while($var=mysqli_fetch_array($result))
+        {
+            $getArray[]=$var;
+        }
+        return $getArray;
+    }
 
-
+    public function productName($id)
+    {
+//        $getArray=array();
+        dbConnect::dbConnection();
+        $sql="SELECT * FROM product WHERE id=$id";
+        $result=mysqli_query($this->db,$sql);
+        while($var=mysqli_fetch_array($result))
+        {
+            $getArray=$var['title'];
+        }
+        return $getArray;
+    }
+    public function searchItems($item)
+    {
+        $getArray=array();
+        dbConnect::dbConnection();
+        $sql="SELECT * FROM product WHERE title LIKE '%".$item."%'";
+        $result=mysqli_query($this->db,$sql);
+        while($var=mysqli_fetch_array($result))
+        {
+            $getArray[]=$var;
+        }
+        return $getArray;
+    }
 }

@@ -25,7 +25,7 @@ foreach($displayId as  $showProduct){
     <textarea rows="5" cols="300" name="review" required>
     </textarea>
     <input type="hidden" name="type" value="review">
-    <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
+    <input type="hidden" name="id" value="<?php echo $_GET['id'];?>">
     <input type="submit" value="Submit">
 </form>
 
@@ -37,8 +37,12 @@ foreach($displayId as  $showProduct){
         <p><?php echo $showReview['review']; ?> </p>
 
         <div class="details">
-            <strong><?php echo $showReview['user_name']; ?></strong>
+            <strong><a href="review.php?id=<?php echo $showReview['user_id']; ?> "> <?php echo $showReview['user_name']; ?></a></strong>
             <em><?php echo $showReview['date']; ?></em>
+            <?php  $pid='https://www.facebook.com/sharer/sharer.php?u=product.php?id='.$_GET['id']; ?>
+            <a href='<?php echo $pid; ?>' target='_blank'>
+                Share on Facebook
+            </a>
         </div>
     </li>
 
