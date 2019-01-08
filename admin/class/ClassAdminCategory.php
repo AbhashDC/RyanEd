@@ -1,6 +1,6 @@
 <?php
 ob_start();
-include_once('../classDbConfig.php');
+include_once('../class/DbConfig.php');
 
 class adminCategory extends dbConnect
 {
@@ -37,6 +37,9 @@ class adminCategory extends dbConnect
             $result = mysqli_query($this->db, $sqlAddCat);
             if ($result) {
                 echo "<script> alert('Category Added');</script>";
+              }
+              else {
+                echo "<script> alert('Category not added');</script>";
               }
     }
     public function deleteCategory($id)

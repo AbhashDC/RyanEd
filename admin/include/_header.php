@@ -10,4 +10,12 @@
 
 </head>
 <body>
-<?php include_once('class/ClassAdminProduct.php'); ?>
+<?php include_once('class/ClassAdminProduct.php');
+  include_once('class/ClassAdminCategory.php');
+  $cat=new adminCategory();
+  if($_SERVER['REQUEST_METHOD']=='POST')
+  {
+    extract($_POST);
+      $cat->addCategory($category);
+  }
+?>

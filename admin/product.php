@@ -1,5 +1,6 @@
-<?php include_once('include/_header.php'); ?>
+<?php include_once('class/ClassAdminCategory.php'); ?>
 
+<?php include_once('include/_header.php'); ?>
 <div class="grid-10">
   <?php include('include/_sidebar.php')?>
 
@@ -7,9 +8,10 @@
 
     <table class="grid-9 bg-grey text-center table-radius product-table" style="padding:20px;">
         <tr>
-          <td colspan="10" style="text-align:left;">
-             <button class="button success add">Add New Product</button>
+          <td colspan="2" style="text-align:left;">
+             <a href="addproduct.php"><button class="button success add">Add New Product</button></a>
          </td>
+         <td colspan="8"><p class="title">Products</p></td>
       </tr>
 
         <tr class="table-title">
@@ -49,134 +51,52 @@
     <!---->
     <!--        <li><a href="index.php?category=--><?php // echo $displays['category']; ?><!--">--><?php // echo $displays['category']; ?><!--</a></li>-->
     <!--    --><?php //}?>
+    <?php
+    $product=new displayAdminProduct();
+    $productv=$product->getAdminProduct();
+    foreach($productv as $productdet)
+    {
 
+    ?>
         <tr>
             <td>
-                1
+                <?php echo $productdet['id']; ?>
             </td>
             <td>
-             Pendrive
+             <?php echo $productdet['title']; ?>
             </td>
             <td>
-                42
+                <?php echo $productdet['price']; ?>
             </td>
             <td>
-                Dell
+                <?php echo $productdet['manufacturer']; ?>
             </td>
             <td>
-                Description
+                <?php echo $productdet['description']; ?>
             </td>
             <td>
-                Phone
+                <?php echo $productdet['category']; ?>
             </td>
             <td>
-                Shown
+                <?php echo $productdet['status']; ?>
             </td>
             <td>johndoe</td>
             <td><img src="" alt="image unavailable" style="height:30px; width:30px"></td>
             <td rowspan="1">
               <button class="button view text-white"><a href="" class="text-decoration">View</a></button>
-              <button class="button edit text-white"><a href="" class="text-decoration">Edit</a></button>
+              <button class="button edit text-white"><a href="editproduct.php" class="text-decoration">Edit</a></button>
               <button class="button delete text-white"><a href="" class="text-decoration">Delete</a></button>
             </td>
         </tr>
-        <tr>
-            <td>
-                1
-            </td>
-            <td>
-             Pendrive
-            </td>
-            <td>
-                42
-            </td>
-            <td>
-                Dell
-            </td>
-            <td>
-                Description
-            </td>
-            <td>
-                Phone
-            </td>
-            <td>
-                Shown
-            </td>
-            <td>johndoe</td>
-            <td><img src="" alt="image unavailable" style="height:30px; width:30px"></td>
-            <td rowspan="1">
-              <button class="button view text-white"><a href="" class="text-decoration">View</a></button>
-              <button class="button edit text-white"><a href="" class="text-decoration">Edit</a></button>
-              <button class="button delete text-white"><a href="" class="text-decoration">Delete</a></button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                1
-            </td>
-            <td>
-             Pendrive
-            </td>
-            <td>
-                42
-            </td>
-            <td>
-                Dell
-            </td>
-            <td>
-                Description
-            </td>
-            <td>
-                Phone
-            </td>
-            <td>
-                Shown
-            </td>
-            <td>johndoe</td>
-            <td><img src="" alt="image unavailable" style="height:30px; width:30px"></td>
-            <td rowspan="1">
-              <button class="button view text-white"><a href="" class="text-decoration">View</a></button>
-              <button class="button edit text-white"><a href="" class="text-decoration">Edit</a></button>
-              <button class="button delete text-white"><a href="" class="text-decoration">Delete</a></button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                1
-            </td>
-            <td>
-             Pendrive
-            </td>
-            <td>
-                42
-            </td>
-            <td>
-                Dell
-            </td>
-            <td>
-                Description
-            </td>
-            <td>
-                Phone
-            </td>
-            <td>
-                Shown
-            </td>
-            <td>johndoe</td>
-            <td><img src="" alt="image unavailable" style="height:30px; width:30px"></td>
-            <td rowspan="1">
-              <button class="button view text-white"><a href="" class="text-decoration">View</a></button>
-              <button class="button edit text-white"><a href="" class="text-decoration">Edit</a></button>
-              <button class="button delete text-white"><a href="" class="text-decoration">Delete</a></button>
-            </td>
-        </tr>
+      <?php }?>
+
     </table>
 
     <br>
 
         <table  class="grid-3 bg-grey text-center table-radius product-table">
             <tr class="table-title">
-                <th colspan="2">Featured</th>
+                <th colspan="2 text-white">Featured</th>
             </tr>
             <tr>
               <td>Title:</td>
@@ -221,13 +141,14 @@
         <table  class="grid-5 bg-grey text-center table-radius product-table">
           <tr>
             <td colspan="3" style="text-align:left;">
-              <a href="#"> <button class="button success add">Add New Category</button></a>
+              <a href="addcategory.php"> <button class="button success add">Add New Category</button></a>
            </td>
-        </tr>
+         </tr>
+
             <tr >
-                <th class="table-title" colspan="2">
-                    Category
-                </th>
+              <th class="table-title">
+                  Id
+              </th>
                 <th class="table-title">
                     Title
                 </th>
@@ -236,21 +157,27 @@
                 </th>
             </tr>
 
-
+            <?php
+            $categ=new adminCategory();
+            $category=$categ->showCategory();
+            foreach($category as $category)
+            {
+            ?>
             <tr>
-                <td colspan="2">
-                    1
+                <td >
+                    <?php echo $category['id'];?>
                 </td>
                 <td>
-                    Phone
+                      <?php echo $category['category'];?>
                 </td>
                 <td>
 
 
-                  <button class="button edit text-white"><a href="" class="text-decoration">Edit</a></button>
+                  <a href="editcategory.php" class="text-decoration"><button class="button edit ">Edit</button></a>
                   <button class="button delete text-white"><a href="" class="text-decoration">Delete</a></button>
                 </td>
             </tr>
+          <?php }?>
 
         </table>
 

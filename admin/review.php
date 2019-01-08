@@ -1,4 +1,5 @@
 <?php include_once('include/_header.php'); ?>
+<?php include_once('class/ClassAdminReview.php'); ?>
 
 <div class="grid-10">
   <?php include('include/_sidebar.php')?>
@@ -29,18 +30,24 @@
               Action
           </th>
       </tr>
+      <?php
+      $rev=new adminReview();
+      $review=$rev->showReview();
+      foreach($review as $reviews)
+      {
+      ?>
       <tr>
           <td>
-              1
+              <?php echo $reviews['id']; ?>
           </td>
           <td>
-           John Doe
+             <?php echo $reviews['user_name']; ?>
           </td>
           <td>
-              something something something something something something something something something something
+              <?php echo $reviews['review']; ?>
           </td>
           <td>
-              2019-01-06
+              <?php echo $reviews['date']; ?>
           </td>
           <td rowspan="1">
             <a href="" class="text-decoration"><button class="button success text-white">Allow</button></a>
@@ -48,101 +55,8 @@
 
           </td>
       </tr>
-      <tr>
-          <td>
-              1
-          </td>
-          <td>
-           John Doe
-          </td>
-          <td>
-              something something something something something something something something something something
-          </td>
-          <td>
-              2019-01-06
-          </td>
-          <td rowspan="1">
-            <a href="" class="text-decoration"><button class="button success text-white">Allow</button></a>
-            <a href="" class="text-decoration"><button class="button danger text-white">Dont Allow</button></a>
-
-          </td>
-      </tr>
-      <tr>
-          <td>
-              1
-          </td>
-          <td>
-           John Doe
-          </td>
-          <td>
-              something something something something something something something something something something
-          </td>
-          <td>
-              2019-01-06
-          </td>
-          <td rowspan="1">
-            <a href="" class="text-decoration"><button class="button success text-white">Allow</button></a>
-            <a href="" class="text-decoration"><button class="button danger text-white">Dont Allow</button></a>
-
-          </td>
-      </tr>
-      <tr>
-          <td>
-              1
-          </td>
-          <td>
-           John Doe
-          </td>
-          <td>
-              something something something something something something something something something something
-          </td>
-          <td>
-              2019-01-06
-          </td>
-          <td rowspan="1">
-            <a href="" class="text-decoration"><button class="button success text-white">Allow</button></a>
-            <a href="" class="text-decoration"><button class="button danger text-white">Dont Allow</button></a>
-
-          </td>
-      </tr>
-      <tr>
-          <td>
-              1
-          </td>
-          <td>
-           John Doe
-          </td>
-          <td>
-              something something something something something something something something something something
-          </td>
-          <td>
-              2019-01-06
-          </td>
-          <td rowspan="1">
-            <a href="" class="text-decoration"><button class="button success text-white">Allow</button></a>
-            <a href="" class="text-decoration"><button class="button danger text-white">Dont Allow</button></a>
-
-          </td>
-      </tr>
-      <tr>
-          <td>
-              1
-          </td>
-          <td>
-           John Doe
-          </td>
-          <td>
-              something something something something something something something something something something
-          </td>
-          <td>
-              2019-01-06
-          </td>
-          <td rowspan="1">
-            <a href="" class="text-decoration"><button class="button success text-white">Allow</button></a>
-            <a href="" class="text-decoration"><button class="button danger text-white">Dont Allow</button></a>
-
-          </td>
-      </tr>
+    <?php }?>
+      
 
 
   </table>
