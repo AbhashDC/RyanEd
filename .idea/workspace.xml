@@ -25,7 +25,7 @@
         <counts>
           <entry key="css" value="6" />
           <entry key="html" value="1" />
-          <entry key="php" value="141" />
+          <entry key="php" value="158" />
           <entry key="sql" value="1" />
           <entry key="txt" value="1" />
         </counts>
@@ -34,7 +34,7 @@
         <counts>
           <entry key="CSS" value="6" />
           <entry key="HTML" value="1" />
-          <entry key="PHP" value="141" />
+          <entry key="PHP" value="158" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="SQL" value="1" />
         </counts>
@@ -43,7 +43,7 @@
         <counts>
           <entry key="css" value="683" />
           <entry key="html" value="1" />
-          <entry key="php" value="6678" />
+          <entry key="php" value="7486" />
           <entry key="txt" value="44" />
         </counts>
       </usages-collector>
@@ -51,7 +51,7 @@
         <counts>
           <entry key="CSS" value="683" />
           <entry key="HTML" value="1" />
-          <entry key="PHP" value="6678" />
+          <entry key="PHP" value="7486" />
           <entry key="PLAIN_TEXT" value="44" />
         </counts>
       </usages-collector>
@@ -92,31 +92,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/admin/class/ClassAdminLogin.php">
+        <entry file="file://$PROJECT_DIR$/admin/class/ClassAdminProduct.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="34" lean-forward="true" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+            <state relative-caret-position="528">
+              <caret line="77" lean-forward="true" selection-start-line="77" selection-end-line="77" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/login.php">
+        <entry file="file://$PROJECT_DIR$/class/ClassProduct.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="7" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/class/ClassUser.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="36" column="24" lean-forward="true" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
-              <folding>
-                <marker date="1546759362264" expanded="true" signature="1611:1772" ph="..." />
-              </folding>
+            <state relative-caret-position="528">
+              <caret line="112" lean-forward="true" selection-start-line="112" selection-end-line="112" />
             </state>
           </provider>
         </entry>
@@ -161,7 +149,6 @@
         <option value="$PROJECT_DIR$/include/_footer.php" />
         <option value="$PROJECT_DIR$/include/_productDetail.php" />
         <option value="$PROJECT_DIR$/review.php" />
-        <option value="$PROJECT_DIR$/admin/class/ClassAdminProduct.php" />
         <option value="$PROJECT_DIR$/admin/index.php" />
         <option value="$PROJECT_DIR$/include/_header.php" />
         <option value="$PROJECT_DIR$/include/_productList.php" />
@@ -171,6 +158,9 @@
         <option value="$PROJECT_DIR$/admin/logout.php" />
         <option value="$PROJECT_DIR$/admin/login.php" />
         <option value="$PROJECT_DIR$/admin/class/ClassAdminLogin.php" />
+        <option value="$PROJECT_DIR$/admin/class/ClassAdminCategory.php" />
+        <option value="$PROJECT_DIR$/admin/class/ClassAdminReview.php" />
+        <option value="$PROJECT_DIR$/admin/class/ClassAdminProduct.php" />
       </list>
     </option>
   </component>
@@ -259,12 +249,12 @@
       <workItem from="1546608146718" duration="14016000" />
       <workItem from="1546749928373" duration="73000" />
       <workItem from="1546750042279" duration="16815000" />
-      <workItem from="1546923036787" duration="6565000" />
+      <workItem from="1546923036787" duration="10251000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70144000" />
+    <option name="totallyTimeSpent" value="73830000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -374,20 +364,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/class/ClassCategory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="9" lean-forward="true" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/class/ClassAdminProduct.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
@@ -430,24 +406,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/class/ClassProduct.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="101" column="26" lean-forward="true" selection-start-line="101" selection-start-column="26" selection-end-line="101" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/include/_productList.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="23" selection-start-line="23" selection-end-line="30" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/_header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="44" column="16" lean-forward="true" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -486,6 +448,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/admin/class/ClassAdminLogin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="57" column="1" lean-forward="true" selection-start-line="57" selection-start-column="1" selection-end-line="57" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/class/ClassUser.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -496,10 +465,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/class/ClassAdminLogin.php">
+    <entry file="file://$PROJECT_DIR$/include/_header.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="34" lean-forward="true" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+        <state relative-caret-position="956">
+          <caret line="58" column="47" selection-start-line="58" selection-start-column="47" selection-end-line="58" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/class/ClassCategory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="33" lean-forward="true" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/class/ClassAdminReview.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/class/ClassAdminCategory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="33" column="5" lean-forward="true" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/class/ClassProduct.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="112" lean-forward="true" selection-start-line="112" selection-end-line="112" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/class/ClassAdminProduct.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="77" lean-forward="true" selection-start-line="77" selection-end-line="77" />
         </state>
       </provider>
     </entry>

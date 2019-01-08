@@ -2,13 +2,11 @@
 ob_start();
 session_start();
 
-include_once('../class/DbConfig.php');
+include_once('../../class/DbConfig.php');
 
 class displayAdminProduct extends dbConnect
 {
-
-
-    public function getProduct()
+    public function getAdminProduct()
     {
         $getArray=array();
         dbConnect::dbConnection();
@@ -21,12 +19,11 @@ class displayAdminProduct extends dbConnect
         return $getArray;
     }
 
-    public function search($category)
+    public function getAdminProduct()
     {
         $getArray=array();
         dbConnect::dbConnection();
-       // $sql="SELECT * FROM product WHERE category LIKE '%".$category."%'";
-        $sql="SELECT * FROM product WHERE category ='.$category.'";
+        $sql="SELECT * FROM product ORDER BY `date` ASC";
         $result=mysqli_query($this->db,$sql);
         while($var=mysqli_fetch_array($result))
         {
@@ -34,7 +31,4 @@ class displayAdminProduct extends dbConnect
         }
         return $getArray;
     }
-
-
-
 }
