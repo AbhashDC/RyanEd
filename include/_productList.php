@@ -6,14 +6,19 @@
 <ul class="products">
 
     <?php
-    if ((@$_GET['category']) == '' || null)
+    if ((@$_GET['category'])!=('' OR null))
     {
-        $displayCat=($product->getProduct());
+        $category=@$_GET['category'];
+        $displayCat=($product->search($category));
+
+    }elseif((@$_GET['search'])!=='')
+    {
+        $search=@$_GET['search'];
+        $displayCat=($product->searchItems($search));
     }
     else
     {
-        $category=$_GET['category'];
-        $displayCat=($product->search($category));
+        $displayCat=($product->getProduct());
     }
 
     foreach($displayCat as  $displays){

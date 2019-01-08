@@ -25,11 +25,7 @@ $user=new userActivity();
           $user->userRegister($name,$email,$password,$address);
         }
     }
-//if ($_SERVER['REQUEST_METHOD'] == 'GET')
-//{
-//    extract($_GET);
-//    @$searchResult=$product->searchItems($search);
-//}
+
 ?>
 <html>
 <head>

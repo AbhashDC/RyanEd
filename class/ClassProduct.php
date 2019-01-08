@@ -97,4 +97,16 @@ class displayProduct extends dbConnect
         }
         return $getArray;
     }
+    public function sideBar()
+    {
+        $getArray=array();
+        dbConnect::dbConnection();
+        $sql="SELECT * FROM product WHERE `featured` = '0'";
+        $result=mysqli_query($this->db,$sql);
+        while($var=mysqli_fetch_array($result))
+        {
+            $getArray[]=$var;
+        }
+        return $getArray;
+    }
 }

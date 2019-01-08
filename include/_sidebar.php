@@ -1,7 +1,13 @@
 <aside>
 
-    <h1><a href="#">Featured Product</a></h1>
-    <p><strong>Gaming PC</strong></p>
-    <p>Brand new 8 core computer with an RTX 2080ti </p>
+    <?php
+    $sideBar=$product->sideBar();
+    foreach($sideBar as  $displays){
+    ?>
+        <h1><a href="product.php?id=<?php echo$displays['id'];?>">Featured Product</a></h1>
+        <p><strong><?php  echo $displays['title']; ?></strong></p>
+        <p><?php  echo $displays['description']; ?> </p>
+    <?php }?>
+
 
 </aside>
