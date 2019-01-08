@@ -4,9 +4,9 @@ ob_start();
 
 include_once('../classDbConfig.php');
 
-class adminActivity extends dbConnect
+class adminMiniActivity extends dbConnect
 {
-    public function adminLogin($email, $password)
+    public function adm($name,$email,$password,$address)
     {
         dbConnect::dbConnection();
         $encPassword = md5($password);
@@ -53,15 +53,5 @@ class adminActivity extends dbConnect
             echo "<script> alert('Account with that email already exists!');</script>";
         }
 
-    }
-
-    public function adminDelete($id)
-    {
-        if($_SESSION['aid']==""){
-            header('location: index.php');
-        }
-        dbConnect::dbConnection();
-        $sqlDelete = "DELETE FROM admin WHERE id='$id'";
-        mysqli_query($this->db, $sqlDelete);
     }
 }
