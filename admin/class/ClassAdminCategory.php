@@ -1,6 +1,6 @@
 <?php
 ob_start();
-include_once('../../classDbConfig.php');
+include_once('../classDbConfig.php');
 
 class adminCategory extends dbConnect
 {
