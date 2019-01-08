@@ -26,12 +26,12 @@
 </tr>
 <tr>
   <td>Address</td>
-  <td><input type="text" name="Address"></td>
+  <td><input type="text" name="address"></td>
 </tr>
-<tr>
+<!-- <tr>
   <td>Admin Type</td>
   <td><select name="type"><option value="SuperAdmin">SuperAdmin</option><option value="Admin">Admin</option></select></td>
-</tr>
+</tr> -->
 
 <tr>
   <td colspan="2" class="text-center"><input type="submit" value="Add" class="button success"></td>
