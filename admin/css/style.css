@@ -3,6 +3,7 @@
     border:0px;
     padding:0px;
     font-family:arial;
+    overflow-x:hidden
 
 }
 .ml-auto{
@@ -91,22 +92,6 @@
 }
 
 
-table {
-    border-collapse: collapse;
-    width: 100%;
-
-
-}
-
-th, td {
-    padding: 8px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}
-th{
-    color:white;
-}
-tr td:hover{background-color:#d6d6c2;}
 
 .sidebar
 {
@@ -149,6 +134,12 @@ tr td:hover{background-color:#d6d6c2;}
   color:#1C2524;
   font-weight:bolder;
 }
+
+table {
+    border-collapse: collapse;
+}
+
+.product-table tr td:hover{background-color:#d6d6c2;}
 .table-radius
 {
     border-radius:10px;
@@ -164,13 +155,15 @@ tr td:hover{background-color:#d6d6c2;}
   margin-bottom:20px;
   float:left;
   box-shadow:0px 1px 2px gray;
+  margin-left:50px;
 }
-table tr th
+.product-table tr th
 {
   padding:15px;
+  color:white;
 
 }
-table tr td
+.product-table tr td
 {
   padding:10px;
   border:1px solid #F5F6F7;
@@ -190,7 +183,7 @@ table tr td
   border-radius:5px;
   box-shadow:0px 1px 2px gray;
   color:white;
-
+  cursor:pointer;
 }
 .edit
 {
@@ -211,4 +204,70 @@ table tr td
   border:1.5px solid green;
   cursor:pointer;
 
+}
+.success
+{
+  background:#55931F;
+  color:white;
+  padding:5px;
+  margin:2px;
+}
+.success a
+{
+  color:white;
+  cursor:pointer;
+  padding:10px;
+}
+.danger
+{
+  background:red;
+  color:white;
+}
+.danger a
+{
+  color:white;
+  cursor:pointer;
+  padding:10px;
+}
+.title
+{
+  font-weight:bolder;
+  font-size:20px;
+  text-transform:uppercase;
+  color:#2A3F52;
+}
+.add a
+{
+  color:white;
+  cursor:pointer;
+  padding:10px;
+}
+.login-form
+{
+  background:#F5F6F7;
+  position:relative;
+  top:180px;
+  box-shadow:0px 2px 2px gray;
+}
+.login-form .title
+{
+  font-size:25px;
+  text-transform:uppercase;
+  color:#2A3F52;
+}
+.login-form tr th,td
+{
+  padding:15px;
+}
+.login-form .submit
+{
+  background:#2A3F52;
+  border-radius:3px;
+  padding:10px;
+
+}
+.login-form input
+{
+  padding:10px;
+  border-radius:5px;
 }
