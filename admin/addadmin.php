@@ -8,6 +8,8 @@
 <table class="form grid-3">
 <form action="" method="POST" >
   <tr>
+    <input type="hidden" name="type" value="admin">
+
     <td class="table-title" colspan="2" style="color:white;text-align:center;font-weight:bolder;text-transform:uppercase;">New Admin</td>
   </tr>
 <tr>
@@ -16,11 +18,19 @@
 </tr>
 <tr>
   <td>Email</td>
-  <td><input type="text" name="Email"></td>
+  <td><input type="text" name="email"></td>
+</tr>
+<tr>
+  <td>Password</td>
+  <td><input type="password" name="password"></td>
 </tr>
 <tr>
   <td>Address</td>
   <td><input type="text" name="Address"></td>
+</tr>
+<tr>
+  <td>Admin Type</td>
+  <td><select name="type"><option value="SuperAdmin">SuperAdmin</option><option value="Admin">Admin</option></select></td>
 </tr>
 
 <tr>

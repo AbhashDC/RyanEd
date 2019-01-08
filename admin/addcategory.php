@@ -8,6 +8,7 @@
 <table class="form grid-3">
 <form action="" method="POST" >
   <tr>
+    <input type="hidden" name="type" value="category">
     <td class="table-title" colspan="2" style="color:white;text-align:center;font-weight:bolder;text-transform:uppercase;">New Category</td>
   </tr>
 <tr>

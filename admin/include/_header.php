@@ -12,10 +12,20 @@
 <body>
 <?php include_once('class/ClassAdminProduct.php');
   include_once('class/ClassAdminCategory.php');
+  include_once('class/ClassAdminLogin.php');
+  $admin=new adminActivity();
   $cat=new adminCategory();
   if($_SERVER['REQUEST_METHOD']=='POST')
   {
     extract($_POST);
+    if($type=='category')
+    {
       $cat->addCategory($category);
+    }
+    elseif($type=='admin')
+    {
+      $admin->adminRegister($name, $email, $password, $address);
+
+    }
   }
 ?>
