@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 05, 2019 at 06:43 PM
+-- Generation Time: Jan 08, 2019 at 08:58 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -29,11 +29,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
-  `id` int(11) NOT NULL,
-  `name` int(11) NOT NULL,
-  `email` int(11) NOT NULL,
-  `password` int(11) NOT NULL,
-  `address` int(11) NOT NULL,
+  `id` int(200) NOT NULL,
+  `name` varchar(250) NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `password` varchar(250) NOT NULL,
+  `address` varchar(250) NOT NULL,
   `type` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -75,21 +75,23 @@ CREATE TABLE `product` (
   `featured` int(11) NOT NULL,
   `img_name` varchar(250) DEFAULT NULL,
   `img_ext` varchar(250) DEFAULT NULL,
-  `date` date DEFAULT NULL
+  `date` date DEFAULT NULL,
+  `admin_id` int(200) NOT NULL,
+  `admin_name` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id`, `title`, `price`, `manufacturer`, `description`, `category`, `status`, `featured`, `img_name`, `img_ext`, `date`) VALUES
-(1, 'PenDrive', 2000, 'Dell', 'lajflafdla9', 'computer', 1, 1, NULL, NULL, '2019-01-09'),
-(2, 'PenDrive', 2000, 'Dell', 'lajflafdla8', 'phones', 1, 1, NULL, NULL, '2019-01-08'),
-(3, 'PenDrive', 2000, 'Dell', 'lajflafdla', 'storage', 1, 1, NULL, NULL, NULL),
-(4, 'PenDrive', 2000, 'Dell', 'lajflafdla', 'storage', 1, 1, NULL, NULL, NULL),
-(5, 'PenDrive', 2000, 'Dell', 'lajflafdla', 'storage', 1, 1, NULL, NULL, NULL),
-(6, 'PenDrive', 2000, 'Dell', 'lajflafdla', 'storage', 1, 1, NULL, NULL, NULL),
-(7, 'PenDrive', 2000, 'Dell', 'lajflafdla', 'storage', 1, 1, NULL, NULL, NULL);
+INSERT INTO `product` (`id`, `title`, `price`, `manufacturer`, `description`, `category`, `status`, `featured`, `img_name`, `img_ext`, `date`, `admin_id`, `admin_name`) VALUES
+(1, 'PenDrive', 2000, 'Dell', 'lajflafdla9', 'computer', 1, 1, NULL, NULL, '2019-01-09', 0, ''),
+(2, 'PenDrive', 2000, 'Dell', 'lajflafdla8', 'phones', 1, 1, NULL, NULL, '2019-01-08', 0, ''),
+(3, 'zlatan', 2000, 'Dell', 'lajflafdla', 'storage', 1, 0, NULL, NULL, '2019-01-02', 0, ''),
+(4, 'Drive', 2000, 'Dell', 'lajflafdla', 'storage', 1, 1, NULL, NULL, '2019-01-22', 0, ''),
+(5, 'kenDrive', 2000, 'Dell', 'lajflafdla', 'storage', 1, 1, NULL, NULL, '2019-01-10', 0, ''),
+(6, 'henDrive', 2000, 'Dell', 'lajflafdla', 'storage', 1, 1, NULL, NULL, '2019-01-11', 0, ''),
+(7, 'P', 2000, 'Dell', 'lajflafdla', 'storage', 1, 1, NULL, NULL, '2019-01-14', 0, '');
 
 -- --------------------------------------------------------
 
@@ -101,16 +103,19 @@ CREATE TABLE `review` (
   `id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `user_name` varchar(250) NOT NULL,
+  `user_id` int(250) NOT NULL,
   `review` text NOT NULL,
-  `date` datetime NOT NULL
+  `date` date NOT NULL,
+  `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `review`
 --
 
-INSERT INTO `review` (`id`, `product_id`, `user_name`, `review`, `date`) VALUES
-(1, 1, 'Abhash', 'THis is very nice yes i likes', '2019-01-17 00:00:00');
+INSERT INTO `review` (`id`, `product_id`, `user_name`, `user_id`, `review`, `date`, `status`) VALUES
+(1, 1, 'Abhash', 1, 'THis is very nice yes i likes', '2019-01-17', 0),
+(2, 1, 'Abhash DC', 2, '    this is bad really bad', '2019-01-06', 0);
 
 -- --------------------------------------------------------
 
@@ -119,11 +124,11 @@ INSERT INTO `review` (`id`, `product_id`, `user_name`, `review`, `date`) VALUES
 --
 
 CREATE TABLE `user` (
-  `id` int(11) NOT NULL,
+  `id` int(200) NOT NULL,
   `name` varchar(250) NOT NULL,
   `email` varchar(250) NOT NULL,
   `password` varchar(250) NOT NULL,
-  `address` int(11) NOT NULL
+  `address` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -131,7 +136,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `password`, `address`) VALUES
-(1, 'Abhash', 'abhash_dc99@outlook.com', 'apple', 1);
+(1, 'Abhash', 'abhash_dc99@outlook.com', 'apple', '1'),
+(2, 'Abhash DC', 'dcabhash@gmail.com', '1f3870be274f6c49b3e31a0c6728957f', 'adfsa');
 
 --
 -- Indexes for dumped tables
@@ -162,14 +168,32 @@ ALTER TABLE `review`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
