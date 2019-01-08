@@ -43,8 +43,8 @@
               2019-01-06
           </td>
           <td rowspan="1">
-            <button class="button success text-white"><a href="" class="text-decoration">Allow</a></button>
-            <button class="button danger text-white"><a href="" class="text-decoration">Dont Allow</a></button>
+            <a href="" class="text-decoration"><button class="button success text-white">Allow</button></a>
+            <a href="" class="text-decoration"><button class="button danger text-white">Dont Allow</button></a>
 
           </td>
       </tr>
@@ -62,8 +62,8 @@
               2019-01-06
           </td>
           <td rowspan="1">
-            <button class="button success text-white"><a href="" class="text-decoration">Allow</a></button>
-            <button class="button danger text-white"><a href="" class="text-decoration">Dont Allow</a></button>
+            <a href="" class="text-decoration"><button class="button success text-white">Allow</button></a>
+            <a href="" class="text-decoration"><button class="button danger text-white">Dont Allow</button></a>
 
           </td>
       </tr>
@@ -81,8 +81,8 @@
               2019-01-06
           </td>
           <td rowspan="1">
-            <button class="button success text-white"><a href="" class="text-decoration">Allow</a></button>
-            <button class="button danger text-white"><a href="" class="text-decoration">Dont Allow</a></button>
+            <a href="" class="text-decoration"><button class="button success text-white">Allow</button></a>
+            <a href="" class="text-decoration"><button class="button danger text-white">Dont Allow</button></a>
 
           </td>
       </tr>
@@ -100,7 +100,8 @@
               2019-01-06
           </td>
           <td rowspan="1">
-            <button class="button danger text-white"><a href="" class="text-decoration">Dont Allow</a></button>
+            <a href="" class="text-decoration"><button class="button success text-white">Allow</button></a>
+            <a href="" class="text-decoration"><button class="button danger text-white">Dont Allow</button></a>
 
           </td>
       </tr>
@@ -118,7 +119,8 @@
               2019-01-06
           </td>
           <td rowspan="1">
-            <button class="button danger text-white"><a href="" class="text-decoration">Dont Allow</a></button>
+            <a href="" class="text-decoration"><button class="button success text-white">Allow</button></a>
+            <a href="" class="text-decoration"><button class="button danger text-white">Dont Allow</button></a>
 
           </td>
       </tr>
@@ -136,7 +138,8 @@
               2019-01-06
           </td>
           <td rowspan="1">
-            <button class="button success text-white"><a href="" class="text-decoration">Allow</a></button>
+            <a href="" class="text-decoration"><button class="button success text-white">Allow</button></a>
+            <a href="" class="text-decoration"><button class="button danger text-white">Dont Allow</button></a>
 
           </td>
       </tr>

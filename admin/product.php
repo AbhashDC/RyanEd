@@ -8,7 +8,7 @@
     <table class="grid-9 bg-grey text-center table-radius product-table" style="padding:20px;">
         <tr>
           <td colspan="10" style="text-align:left;">
-             <button class="button success add"><a href="#">Add New Product</a></button>
+             <button class="button success add">Add New Product</button>
          </td>
       </tr>
 
@@ -221,7 +221,7 @@
         <table  class="grid-5 bg-grey text-center table-radius product-table">
           <tr>
             <td colspan="3" style="text-align:left;">
-               <button class="button success add"><a href="#">Add New Category</a></button>
+              <a href="#"> <button class="button success add">Add New Category</button></a>
            </td>
         </tr>
             <tr >
