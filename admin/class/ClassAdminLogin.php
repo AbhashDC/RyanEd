@@ -2,7 +2,7 @@
 ob_start();
 @session_start();
 
-include_once('../classDbConfig.php');
+include_once('../class/DbConfig.php');
 
 class adminActivity extends dbConnect
 {
