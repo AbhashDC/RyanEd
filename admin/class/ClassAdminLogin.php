@@ -64,4 +64,19 @@ class adminActivity extends dbConnect
         $sqlDelete = "DELETE FROM admin WHERE id='$id'";
         mysqli_query($this->db, $sqlDelete);
     }
+
+    public function adminEdit($id,$name,$email,$password,$address)
+    {
+        if($_SESSION['aid']==""){
+            header('location: index.php');
+        }
+        else{
+            $type=1;
+            dbConnect::dbConnection();
+
+            $sqlDelete = "UPDATE admin SET name= = 0 WHERE id = $id DELETE FROM admin WHERE id='$id'";
+            mysqli_query($this->db, $sqlDelete);
+        }
+
+    }
 }
