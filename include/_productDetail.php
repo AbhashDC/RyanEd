@@ -14,6 +14,7 @@ foreach($displayId as  $showProduct){
     ?>
     <li>
         <h3><a href="product.php?id=<?php  echo $showProduct['id']; ?>"><?php  echo $showProduct['title']; ?></a></h3>
+        <img src="<?php  echo $showProduct['img_name']; ?>" style="height:100px; width:100px;">
         <p><?php  echo $showProduct['description']; ?></p>
         <div class="price">£<?php  echo $showProduct['price']; ?></div>
     </li>

@@ -1,14 +1,25 @@
 <?php include_once('include/_header.php'); ?>
 
-<div class="grid-10">
-  <?php include('include/_sidebar.php')?>
-
-<div class="grid-85 main-content " style=" height:auto;margin-left:205px;">
-
-
-</div>
-</div>
-
-
-<!--</div>-->
+<br><center>
+<table class=" grid-3 " style="border:2px groove #2A3F52;padding:15px; ">
+<form action="" method="post" >
+  <tr >
+    <th colspan="2"> <p class="title">Log In</p> </th>
+  </tr>
+  <tr>
+    <td>
+    <label>Email:</label></td>
+    <td> <input type="email" name="email" /></td>
+  </tr>
+  <tr>
+    <td><label>Password:</label></td>
+    <td> <input type="password" name="password" /></td>
+  </tr>
+  <tr>
+    <td colspan="2"><center>
+    <input type="submit" name="submit" value="Login" class="button submit"/></td>
+    <input type="hidden" name="type" value="login" />
+  </tr>
+</form>
+</table></center>
 <?php include_once('include/_footer.php'); ?>

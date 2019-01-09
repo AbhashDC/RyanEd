@@ -18,24 +18,20 @@ class adminActivity extends dbConnect
             echo "<script>alert('Couldnt logIn');</script>";
         }
         while ($row = mysqli_fetch_array($result)) {
-            if ($row['type'] == 0) {  //admin id
+
                 $_SESSION['aid'] = $row['id'];
                 $_SESSION['aname'] = $row['name'];
                 $_SESSION['aemail'] = $row['email'];
-                header('location: index.php');
-            } else { //normal admin id
-                $_SESSION['id'] = $row['id'];
-                $_SESSION['name'] = $row['name'];
-                $_SESSION['email'] = $row['email'];
-                header('location: index.php');
-            }
+                $_SESSION['type']=$row['type'];
+                header('location: product.php');
         }
     }
 
     public function adminRegister($name, $email, $password, $address)
     {
-        if($_SESSION['aid']==""){
+        if($_SESSION['type']!=="0"){
             header('location: index.php');
+            die;
         }
         dbConnect::dbConnection();
         $encPassword = md5($password);
@@ -57,8 +53,9 @@ class adminActivity extends dbConnect
 
     public function adminDelete($id)
     {
-        if($_SESSION['aid']==""){
+        if($_SESSION['type']!=="0"){
             header('location: index.php');
+            die;
         }
         dbConnect::dbConnection();
         $sqlDelete = "DELETE FROM admin WHERE id='$id'";
@@ -67,8 +64,9 @@ class adminActivity extends dbConnect
 //baki cha
     public function adminEdit($id,$name,$email,$password,$address)
     {
-        if($_SESSION['aid']==""){
+        if($_SESSION['type']!=="0"){
             header('location: index.php');
+            die;
         }
         else{
             $type=1;

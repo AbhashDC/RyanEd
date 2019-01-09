@@ -1,5 +1,5 @@
 <?php include_once('include/_header.php'); ?>
-<?php include_once('class/ClassAdminReview.php'); ?>
+
 
 <div class="grid-10">
   <?php include('include/_sidebar.php')?>
@@ -31,7 +31,7 @@
           </th>
       </tr>
       <?php
-      $rev=new adminReview();
+
       $review=$rev->showReview();
       foreach($review as $reviews)
       {
@@ -50,8 +50,17 @@
               <?php echo $reviews['date']; ?>
           </td>
           <td rowspan="1">
-            <a href="" class="text-decoration"><button class="button success text-white">Allow</button></a>
-            <a href="" class="text-decoration"><button class="button danger text-white">Dont Allow</button></a>
+              <form method="post" action="">
+                  <?php if (($reviews['status'])==0){ ?>
+                      <input type="submit" value="Allow" class="button success text-white">
+                      <input type="hidden" value="reviewAllow" name="type" >
+                      <input type="hidden" value="<?php echo $reviews['id']; ?>" name="id" >
+                  <?php } else { ?>
+                      <input type="submit" value="Dont Allow" class="button danger text-white">
+                      <input type="hidden" value="reviewDontAllow" name="type" >
+                      <input type="hidden" value="<?php echo $reviews['id']; ?>" name="id" >
+                  <?php } ?>
+              </form>
 
           </td>
       </tr>

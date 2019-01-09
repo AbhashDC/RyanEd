@@ -10,11 +10,15 @@
 
 </head>
 <body>
-<?php include_once('class/ClassAdminProduct.php');
+<?php
+include_once('class/ClassAdminProduct.php');
   include_once('class/ClassAdminCategory.php');
   include_once('class/ClassAdminLogin.php');
+  include_once('class/ClassAdminReview.php');
+$product= new displayAdminProduct();
   $admin=new adminActivity();
   $cat=new adminCategory();
+  $rev=new adminReview();
   if($_SERVER['REQUEST_METHOD']=='POST')
   {
     extract($_POST);
@@ -25,7 +29,38 @@
     elseif($type=='admin')
     {
       $admin->adminRegister($name, $email, $password, $address);
-
+    }
+    elseif($type=='reviewAllow')
+    {
+        $rev->disableReview($id);
+    }
+    elseif($type=='reviewDontAllow')
+    {
+        $rev->enableReview($id);
+    }
+    elseif($type=='addProduct')
+    {
+        $product->addProduct($title,$price,$manufacturer,$description,$category);
+    }
+    elseif($type=='login')
+    {
+        $admin->adminLogin($email,$password);
+    }
+    elseif($type=='featuredProductChange')
+    {
+        $product->updateFeaturedProduct($featuredProduct);
+    }
+    elseif($type=='deleteProduct')
+    {
+        $product->deleteProduct($prid);
+    }
+    elseif($type=='deleteCategory')
+    {
+        $cat->deleteCategory($id);
+    }
+    elseif($type=='editCategory')
+    {
+        $cat->updateCategory($id, $category);
     }
   }
 ?>
