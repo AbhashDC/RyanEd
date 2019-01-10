@@ -1,7 +1,7 @@
 <?php include_once('include/_header.php'); ?>
 <?php
 $id=$_GET['id'];
-$category=$cat->showOneCategory($id)?>
+$category=$cat->showOneCategory($id);?>
 <div class="grid-10">
     <?php include('include/_sidebar.php') ?>
 

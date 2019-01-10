@@ -52,7 +52,7 @@ $product= new displayAdminProduct();
     }
     elseif($type=='deleteProduct')
     {
-        $product->deleteProduct($prid);
+        $product->deleteProduct($id);
     }
     elseif($type=='deleteCategory')
     {
@@ -61,6 +61,18 @@ $product= new displayAdminProduct();
     elseif($type=='editCategory')
     {
         $cat->updateCategory($id, $category);
+    }
+    elseif($type=='editAdmin')
+    {
+        $admin->updateAdmin($id, $name,$email,$address);
+    }
+    elseif($type=='deleteAdmin')
+    {
+        $admin->deleteAdmin($id);
+    }
+    elseif($type=='editProduct')
+    {
+        $product->editProduct($id,$title,$price,$manufacturer,$description,$category);
     }
   }
 ?>

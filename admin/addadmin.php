@@ -7,6 +7,7 @@
   <center>
 <table class="form grid-3">
 <form action="" method="POST" >
+    <input type="hidden" name="type" value="admin" required>
   <tr>
     <input type="hidden" name="type" value="admin">
 
@@ -14,19 +15,19 @@
   </tr>
 <tr>
   <td>Name</td>
-  <td><input type="text" name="name"></td>
+  <td><input type="text" name="name" required></td>
 </tr>
 <tr>
   <td>Email</td>
-  <td><input type="text" name="email"></td>
+  <td><input type="text" name="email" required></td>
 </tr>
 <tr>
   <td>Password</td>
-  <td><input type="password" name="password"></td>
+  <td><input type="password" name="password" required></td>
 </tr>
 <tr>
   <td>Address</td>
-  <td><input type="text" name="address"></td>
+  <td><input type="text" name="address" required></td>
 </tr>
 <!-- <tr>
   <td>Admin Type</td>

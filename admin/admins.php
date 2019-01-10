@@ -8,6 +8,7 @@
     <tr>
       <td colspan="1" style="text-align:left;">
          <a href="addadmin.php"><button class="button success add">Add New Admin</button></a>
+
      </td>
      <td colspan="4"><p class="title">Admin</p></td>
   </tr>
@@ -24,27 +25,34 @@
               Action
           </th>
       </tr>
+      <form method="post" action="">
+      <?php $admins=$admin->getAdmin();
+      foreach($admins as $admin){?>
       <tr>
+
           <td>
-              1
+              <?php echo $admin['id']; ?>
           </td>
           <td>
-           John Doe
+              <?php echo $admin['name']; ?>
           </td>
           <td>
-            johndoe@gmail.com
+              <?php echo $admin['email']; ?>
           </td>
           <td>
-            Shinamangal
+              <?php echo $admin['address']; ?>
           </td>
           <td rowspan="1">
-            <button class="button view text-white"><a href="editadmin.php" class="text-decoration">Edit</a></button>
-            <button class="button delete text-white"><a href="" class="text-decoration">Delete</a></button>
+              <button class="button edit "><a href="editadmin.php?id=<?php echo$admin['id']; ?>" class="text-decoration">Edit</a></button>
+              <input type="hidden" name="type" value="deleteAdmin">
+              <input type="hidden" name="id" value="<?php echo $admin['id']; ?>">
+              <input type="submit" value="delete" class="button delete text-white">
+
 
           </td>
       </tr>
-
-
+<?php } ?>
+  </table></form>
 
   </table>
 

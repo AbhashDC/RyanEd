@@ -1,6 +1,5 @@
 <?php include_once('include/_header.php');
-$id=$_GET['id'];
-$produc=$product->showOneCategory($id)?>
+?>
 
 <div class="grid-10">
   <?php include('include/_sidebar.php')?>

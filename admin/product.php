@@ -41,7 +41,7 @@
                 </th>
             </tr>
 
-
+            <form method="POST" action="">
             <?php
 
             $productv = $product->getAdminProduct();
@@ -68,23 +68,23 @@
                         <?php echo $productdet['category']; ?>
                     </td>
 
-                    <td>johndoe</td>
+                    <td><?php echo $productdet['admin_name']; ?></td>
                     <td><img src="<?php echo "../" . $productdet['img_name']; ?>" alt="image unavailable"
                              style="height:30px; width:30px"></td>
                     <td rowspan="1">
-                        <form method="POST" action="">
-                            <a href="editproduct.php?id=<?php echo $productdet['img_name']; ?>" class="text-decoration">
-                                <button class="button edit ">Edit</button>
-                            </a>
-                            <input type="hidden" name="type" value="deleteProduct">
-                            <input type="hidden" name="prid" value="<?php echo $productdet['id']; ?>">
+
+
+                            <button class="button edit "><a href="editproduct.php?id=<?php echo$productdet['id']; ?>" class="text-decoration">Edit</a></button>
+
                             <input type="submit" value="delete" class="button delete text-white">
-                        </form>
+                            <input type="hidden" name="type" value="deleteProduct">
+                            <input type="hidden" name="id" value="<?php echo $productdet['id']; ?>">
+
 
                     </td>
                 </tr>
             <?php } ?>
-
+            </form>
         </table>
 
         <br>
