@@ -1,3 +1,4 @@
+<?php include_once('session.php'); ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -15,6 +16,7 @@ include_once('class/ClassAdminProduct.php');
   include_once('class/ClassAdminCategory.php');
   include_once('class/ClassAdminLogin.php');
   include_once('class/ClassAdminReview.php');
+
 $product= new displayAdminProduct();
   $admin=new adminActivity();
   $cat=new adminCategory();

@@ -12,11 +12,10 @@ class displayProduct extends dbConnect
     {
         $getArray=array();
         dbConnect::dbConnection();
-        $sql="SELECT * FROM product ORDER BY `date` ASC";
-        $result=mysqli_query($this->db,$sql);
-        while($var=mysqli_fetch_array($result))
+        $sql=$this->pdo->query("SELECT * FROM product ORDER BY `date` ASC");
+        while($row=$sql->fetch(PDO::FETCH_BOTH))
         {
-            $getArray[]=$var;
+            $getArray[]=$row;
         }
         return $getArray;
     }
@@ -101,11 +100,10 @@ class displayProduct extends dbConnect
     {
         $getArray=array();
         dbConnect::dbConnection();
-        $sql="SELECT * FROM product WHERE `featured` = '0'";
-        $result=mysqli_query($this->db,$sql);
-        while($var=mysqli_fetch_array($result))
+        $sql=$this->pdo->query("SELECT * FROM product WHERE `featured` = '0'");
+        while($row=$sql->fetch(PDO::FETCH_BOTH))
         {
-            $getArray[]=$var;
+            $getArray[]=$row;
         }
         return $getArray;
     }

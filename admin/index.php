@@ -1,5 +1,15 @@
-<?php include_once('include/_header.php'); ?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css" />
 
+</head>
+<body>
 <br><center>
 <table class=" grid-3 " style="border:2px groove #2A3F52;padding:15px; ">
 <form action="" method="post" >
