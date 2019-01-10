@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 08, 2019 at 05:14 PM
+-- Generation Time: Jan 10, 2019 at 02:00 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -37,6 +37,14 @@ CREATE TABLE `admin` (
   `type` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `name`, `email`, `password`, `address`, `type`) VALUES
+(1, 'abhash', 'dcabhash@gmail.com', '1f3870be274f6c49b3e31a0c6728957f', 'man', 0),
+(3, 'ryan', 'ryan@ryan.com', '202cb962ac59075b964b07152d234b70', 'man', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -44,7 +52,7 @@ CREATE TABLE `admin` (
 --
 
 CREATE TABLE `category` (
-  `id` int(11) NOT NULL,
+  `id` int(200) NOT NULL,
   `category` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -55,8 +63,7 @@ CREATE TABLE `category` (
 INSERT INTO `category` (`id`, `category`) VALUES
 (1, 'TVs'),
 (2, 'Computers'),
-(3, 'Phones'),
-(4, 'Gaming');
+(4, 'Games');
 
 -- --------------------------------------------------------
 
@@ -71,10 +78,8 @@ CREATE TABLE `product` (
   `manufacturer` varchar(250) NOT NULL,
   `description` text NOT NULL,
   `category` varchar(250) NOT NULL,
-  `status` int(11) DEFAULT NULL,
   `featured` int(11) NOT NULL,
   `img_name` varchar(250) DEFAULT NULL,
-  `img_ext` varchar(250) DEFAULT NULL,
   `date` date DEFAULT NULL,
   `admin_id` int(200) NOT NULL,
   `admin_name` varchar(200) NOT NULL
@@ -84,14 +89,8 @@ CREATE TABLE `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id`, `title`, `price`, `manufacturer`, `description`, `category`, `status`, `featured`, `img_name`, `img_ext`, `date`, `admin_id`, `admin_name`) VALUES
-(1, 'PenDrive', 2000, 'Dell', 'lajflafdla9', 'computer', 1, 1, NULL, NULL, '2019-01-09', 0, ''),
-(2, 'PenDrive', 2000, 'Dell', 'lajflafdla8', 'phones', 1, 1, NULL, NULL, '2019-01-08', 0, ''),
-(3, 'zlatan', 2000, 'Dell', 'lajflafdla', 'storage', 1, 0, NULL, NULL, '2019-01-02', 0, ''),
-(4, 'Drive', 2000, 'Dell', 'lajflafdla', 'storage', 1, 1, NULL, NULL, '2019-01-22', 0, ''),
-(5, 'kenDrive', 2000, 'Dell', 'lajflafdla', 'storage', 1, 1, NULL, NULL, '2019-01-10', 0, ''),
-(6, 'henDrive', 2000, 'Dell', 'lajflafdla', 'storage', 1, 1, NULL, NULL, '2019-01-11', 0, ''),
-(7, 'P', 2000, 'Dell', 'lajflafdla', 'storage', 1, 1, NULL, NULL, '2019-01-14', 0, '');
+INSERT INTO `product` (`id`, `title`, `price`, `manufacturer`, `description`, `category`, `featured`, `img_name`, `date`, `admin_id`, `admin_name`) VALUES
+(4, 'new', 420, 'dllll', 'ljksdf oisjdf oijdsafosdfojiasld fj;ldsjfoifjew jasl;kdfiadsljf;asdlfj;adslfjadsklfj;lsdjdsalkjf ;jdfoidasjf;sdj', 'TVs', 0, 'images/product/10-01-2019-1547125156IMG_2404.JPG', '2019-01-10', 1, 'abhash');
 
 -- --------------------------------------------------------
 
@@ -114,8 +113,8 @@ CREATE TABLE `review` (
 --
 
 INSERT INTO `review` (`id`, `product_id`, `user_name`, `user_id`, `review`, `date`, `status`) VALUES
-(1, 1, 'Abhash', 1, 'THis is very nice yes i likes', '2019-01-17', 0),
-(2, 1, 'Abhash DC', 2, '    this is bad really bad', '2019-01-06', 0);
+(1, 1, 'Abhash', 1, 'THis is very nice yes i likes', '2019-01-17', 1),
+(2, 1, 'Abhash DC', 2, '    this is bad really bad', '2019-01-06', 1);
 
 -- --------------------------------------------------------
 
@@ -181,13 +180,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user`
