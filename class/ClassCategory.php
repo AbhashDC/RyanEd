@@ -10,7 +10,7 @@ class displayCategory extends dbConnect
         $getArray=array();
         dbConnect::dbConnection();
         $sql = $this->pdo->query("SELECT * FROM category ORDER BY id ASC");
-        while($row=$sql->fetch(PDO::FETCH_BOTH))
+        while($row=$sql->fetch())
         {
             $getArray[]=$row;
         }
