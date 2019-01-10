@@ -28,3 +28,5 @@ li a:hover {
 https://www.youtube.com/watch?v=kEW6f7Pilc4------Learnt pdo
 
 https://stackoverflow.com/questions/16463030/how-to-add-facebook-share-button-on-my-website --sharebutton
+
+https://stackoverflow.com/questions/6249707/check-if-php-session-has-already-started---checking session started

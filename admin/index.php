@@ -1,3 +1,9 @@
+<?php if($_SERVER['REQUEST_METHOD']=='POST')
+{include_once('class/ClassAdminLogin.php');
+    $admin=new adminActivity();
+    extract($_POST);
+    $admin->adminLogin($email,$password);
+} ?>
 <!doctype html>
 <html lang="en">
 <head>

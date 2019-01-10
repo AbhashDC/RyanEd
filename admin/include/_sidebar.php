@@ -1,3 +1,4 @@
+<?php include_once('session.php'); ?>
 <div class="sidebar grid-15">
   <a href="#" class="sidebar-title"><?php echo $_SESSION['aname']; ?></a>
     <a class="" href="product.php">Products</a>

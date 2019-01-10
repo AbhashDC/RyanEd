@@ -1,7 +1,7 @@
 <?php
 ob_start();
 include_once('../class/DbConfig.php');
-
+include_once('session.php');
 class adminReview extends dbConnect
 {
     public function showReview()
