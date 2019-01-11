@@ -32,7 +32,17 @@ front end ma ni tei milako cha status 0 mattra tanne vanera
 =======================================================================
 email is in classAdminProduct line 53 function named sendEmail, it is commented inside function addproduct function on  line 132
 ===================================================
-
+Repeated code lai breakdown gareko cha
+for eg.
+Front end ko code lai breakdown garerea include folder vitra rakheko cha
+COde reuse ko lai ramro garkeo cha
+==================================================
+Folder structuring ramro gareko cha
+admin ko part admin folder vitra cha
+dbCOnfig chai database connection ko file ho jun chai bahira ko class vitra cha
+same code kina admin ma lekhnu vanera tei bahira kai code use garkeo cha
+css files are inside css folder and same goes for db, images
+==================================================
 ul {
   list-style-type: none;
   margin: 0;
