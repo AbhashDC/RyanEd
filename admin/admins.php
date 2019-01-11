@@ -1,6 +1,6 @@
 <?php include_once('include/_header.php'); ?>
 <?php
-if (($_SESSION['type']) !== 0) {
+if (($_SESSION['type']) != 0) {
     header('location: product.php');
 }
 ?>
