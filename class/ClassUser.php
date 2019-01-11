@@ -68,7 +68,7 @@ class userActivity extends dbconnect
 
         if (@$_SESSION['id'] == "") {
             echo "<script>alert('please login'); </script>";
-            die;
+
         } else {
 
             dbConnect::dbConnection();

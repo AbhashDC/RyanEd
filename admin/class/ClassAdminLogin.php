@@ -101,6 +101,21 @@ class adminActivity extends dbConnect
         }
 
         dbConnect::dbConnection();
+        $sql1 = $this->pdo->prepare("SELECT * FROM product WHERE admin_id= :id");
+        $values1 = [
+            'id' => $id
+        ];
+        $sql1->execute($values1);
+        while ($var1 = $sql1->fetch()) {
+            $low = "../";
+            $img = $low . $var1["img_name"];
+            unlink($img);
+            $sql5 = $this->pdo->prepare("DELETE FROM review WHERE product_id= :id");
+            $values5 = [
+                'id' => $var1['id']
+            ];
+            $sql5->execute($values5);
+        }
         $sql = $this->pdo->prepare("DELETE FROM admin WHERE id= :id");
         $values = [
             'id' => $id

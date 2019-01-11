@@ -242,6 +242,11 @@ class displayAdminProduct extends dbConnect
         $values1 = [
             'id' => $id
         ];
+        $sql2 = $this->pdo->prepare("DELETE FROM review WHERE product_id= :id");
+        $values2 = [
+            'id' => $id
+        ];
+        $sql2->execute($values2);
         if ($sql1->execute($values1)) {
             echo "<script> alert('Product Deleted');</script>";
         } else {
