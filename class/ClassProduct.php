@@ -10,7 +10,7 @@ class displayProduct extends dbConnect
     {
         $getArray = array();
         dbConnect::dbConnection();
-        $sql = $this->pdo->prepare("SELECT * FROM product WHERE category = :category");
+        $sql = $this->pdo->prepare("SELECT * FROM product WHERE category = :category ORDER BY `date` DESC");
         $values = [
             'category' => $category
         ];
@@ -42,7 +42,7 @@ class displayProduct extends dbConnect
         $getArray = array();
         dbConnect::dbConnection();
 
-        $sql = $this->pdo->prepare("SELECT * FROM review WHERE product_id = :id AND status= :status");
+        $sql = $this->pdo->prepare("SELECT * FROM review WHERE product_id = :id AND status= :status ORDER BY `date` DESC");
         $values = [
             'id' => $id,
             'status' => '0'
@@ -90,7 +90,7 @@ class displayProduct extends dbConnect
         $getArray = array();
         dbConnect::dbConnection();
 
-        $sql = $this->pdo->prepare("SELECT * FROM product WHERE title LIKE ?");
+        $sql = $this->pdo->prepare("SELECT * FROM product WHERE title LIKE ? order by `date` desc");
         $sql->bindValue(1, "%$item%", PDO::PARAM_STR);
         $sql->execute();
         while ($var = $sql->fetch()) {
@@ -118,7 +118,7 @@ class displayProduct extends dbConnect
     {
         $getArray = array();
         dbConnect::dbConnection();
-        $sql = $this->pdo->query("SELECT * FROM product BY date ASC");
+        $sql = $this->pdo->query("SELECT * FROM product ORDER BY `date` DESC ");
         while ($row = $sql->fetch(PDO::FETCH_ASSOC)) {
             $getArray[] = $row;
         }

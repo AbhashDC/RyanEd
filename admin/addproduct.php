@@ -17,23 +17,23 @@
                     </tr>
                     <tr>
                         <td>Title</td>
-                        <td><input type="text" name="title"></td>
+                        <td><input type="text" name="title" required></td>
                     </tr>
                     <tr>
                         <td>Price</td>
-                        <td><input type="number" name="price"></td>
+                        <td><input type="number" name="price" required></td>
                     </tr>
                     <tr>
                         <td>Manufacturer</td>
-                        <td><input type="text" name="manufacturer"></td>
+                        <td><input type="text" name="manufacturer" required></td>
                     </tr>
                     <tr>
                         <td>Description</td>
-                        <td><textarea type="text" name="description"></textarea></td>
+                        <td><textarea type="text" name="description" required></textarea></td>
                     </tr>
                     <tr>
                         <td>Category</td>
-                        <td><select name="category">
+                        <td><select name="category" required>
 
                                 <?php $showMyCategory = $cat->showCategory();
                                 foreach ($showMyCategory as $catapult) { ?>
@@ -46,7 +46,7 @@
 
                     <tr>
                         <td>Image</td>
-                        <td><input type="file" name="coverToUpload" required></td>
+                        <td><input type="file" name="coverToUpload" required><br> <small>*file size limit 4mb</small></td>
                     </tr>
 
                     <tr>

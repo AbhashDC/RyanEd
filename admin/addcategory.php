@@ -19,7 +19,7 @@
                         <td><input type="text" name="category"></td>
                     </tr>
                     <tr>
-                        <td colspan="2" class="text-center"><input type="submit" value="Add" class="button success">
+                        <td colspan="2" class="text-center"><input type="submit" value="Add" class="button success" required>
                         </td>
                     </tr>
             </table>

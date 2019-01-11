@@ -10,7 +10,7 @@ class displayAdminProduct extends dbConnect
     {
         $getArray = array();
         dbConnect::dbConnection();
-        $sql = $this->pdo->query("SELECT * FROM product ORDER BY date ASC");
+        $sql = $this->pdo->query("SELECT * FROM product ORDER BY `date` DESC");
         while ($row = $sql->fetch()) {
             $getArray[] = $row;
         }
