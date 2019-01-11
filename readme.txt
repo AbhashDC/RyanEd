@@ -31,6 +31,6 @@ https://stackoverflow.com/questions/16463030/how-to-add-facebook-share-button-on
 
 https://stackoverflow.com/questions/6249707/check-if-php-session-has-already-started---checking session started
 
-$_SERVER['REQUEST_METHOD']==POST----extract($_post)-----search and find in sttackoverflow as an useful and another way to get variable form post and extract them
-w3school image upload---for image upload in product
-w3school email---for email in classAdminProduct line 57, it is commented inside function addproduct line 139
+https://stackoverflow.com/questions/409351/post-vs-serverrequest-method-post    -----['REQUEST_METHOD']==POST extract($_post) an useful and another way to get variable form post and extract them
+https://www.w3schools.com/php/php_file_upload.asp---for image upload in product
+https://www.w3schools.com/php/func_mail_mail.asp---for email in classAdminProduct line 57, it is commented inside function addproduct line 139

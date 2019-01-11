@@ -107,7 +107,7 @@ class displayAdminProduct extends dbConnect
                 $uploadOk = 0;
             }
             // Check file size
-            if ($_FILES["coverToUpload"]["size"] > 2000000) {
+            if ($_FILES["coverToUpload"]["size"] > 5000000) {
                 echo "Sorry, your file is too large.";
                 $ok = 0;
             }
@@ -187,8 +187,8 @@ class displayAdminProduct extends dbConnect
                 // echo "File is not an image.";
                 $ok = 0;
             }
-            // Check file size
-            if ($_FILES["coverToUpload"]["size"] > 2000000) {
+            // Check file size for 5mb
+            if ($_FILES["coverToUpload"]["size"] > 5000000) {
                 echo "Sorry, your file is too large.";
                 $ok = 0;
             }
@@ -258,9 +258,7 @@ class displayAdminProduct extends dbConnect
         }
 
 
-
     }
-
 
 
     public function showOneProduct($id)
