@@ -42,48 +42,49 @@
             </tr>
 
             <form method="POST" action="">
-            <?php
+                <?php
 
-            $productv = $product->getAdminProduct();
-            foreach ($productv as $productdet) {
+                $productv = $product->getAdminProduct();
+                foreach ($productv as $productdet) {
 
-                ?>
-                <tr>
-                    <td>
-                        <?php echo $productdet['id']; ?>
-                    </td>
-                    <td>
-                        <?php echo $productdet['title']; ?>
-                    </td>
-                    <td>
-                        <?php echo $productdet['price']; ?>
-                    </td>
-                    <td>
-                        <?php echo $productdet['manufacturer']; ?>
-                    </td>
-                    <td>
-                        <?php echo $productdet['description']; ?>
-                    </td>
-                    <td>
-                        <?php echo $productdet['category']; ?>
-                    </td>
+                    ?>
+                    <tr>
+                        <td>
+                            <?php echo $productdet['id']; ?>
+                        </td>
+                        <td>
+                            <?php echo $productdet['title']; ?>
+                        </td>
+                        <td>
+                            <?php echo $productdet['price']; ?>
+                        </td>
+                        <td>
+                            <?php echo $productdet['manufacturer']; ?>
+                        </td>
+                        <td>
+                            <?php echo $productdet['description']; ?>
+                        </td>
+                        <td>
+                            <?php echo $productdet['category']; ?>
+                        </td>
 
-                    <td><?php echo $productdet['admin_name']; ?></td>
-                    <td><img src="<?php echo "../" . $productdet['img_name']; ?>" alt="image unavailable"
-                             style="height:30px; width:30px"></td>
-                    <td rowspan="1">
+                        <td><?php echo $productdet['admin_name']; ?></td>
+                        <td><img src="<?php echo "../" . $productdet['img_name']; ?>" alt="image unavailable"
+                                 style="height:30px; width:30px"></td>
+                        <td rowspan="1">
 
 
-                            <button class="button edit "><a href="editproduct.php?id=<?php echo$productdet['id']; ?>" class="text-decoration">Edit</a></button>
+                            <button class="button edit "><a href="editproduct.php?id=<?php echo $productdet['id']; ?>"
+                                                            class="text-decoration">Edit</a></button>
 
                             <input type="submit" value="delete" class="button delete text-white">
                             <input type="hidden" name="type" value="deleteProduct">
                             <input type="hidden" name="id" value="<?php echo $productdet['id']; ?>">
 
 
-                    </td>
-                </tr>
-            <?php } ?>
+                        </td>
+                    </tr>
+                <?php } ?>
             </form>
         </table>
 
@@ -176,7 +177,8 @@
                         </td>
                         <td>
 
-                            <button class="button edit "><a href="editcategory.php?id=<?php echo$category['id']; ?>" class="text-decoration">Edit</a></button>
+                            <button class="button edit "><a href="editcategory.php?id=<?php echo $category['id']; ?>"
+                                                            class="text-decoration">Edit</a></button>
 
                             <input type="submit" value="delete" class="button delete text-white">
                             <input type="hidden" name="type" value="deleteCategory">

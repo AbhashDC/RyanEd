@@ -3,13 +3,14 @@
 <main>
     <h1>Welcome to Ed's Electronics</h1>
 
-    <p>We stock a large variety of electrical goods including phones, tvs, computers and games. Everything comes with at least a one year guarantee and free next day delivery.</p>
+    <p>We stock a large variety of electrical goods including phones, tvs, computers and games. Everything comes with at
+        least a one year guarantee and free next day delivery.</p>
 
-    <hr />
+    <hr/>
 
     <?php //require_once('include/_productList.php'); ?>
 
-    <hr />
+    <hr/>
     <?php require_once('include/_productDetail.php'); ?>
 
 </main>

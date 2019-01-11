@@ -1,3 +1,38 @@
+=====================================================================
+Login Details:
+Super Admin--
+email=admin@gmail.com
+password=apple
+--------------------------------------------------------------------
+Normal Admin--
+email=rajan@gmail.com
+password=r
+--------------------------------------------------------------------
+User -- Drop register and add user
+email:
+password:
+---------------------------------------------------------------------
+Product-- add product by logging into above admins
+------------------------------------------------------------------------
+=====================================================================
+File Upload:
+max upload size is 4mb or maybe 5mb
+php.ini file ma file upload on garnu parcha ani max size 12mb deu
+jpg,png,jpeg files only allowed
+=====================================================================
+0 is viewed as positive and 1 as negative in db. DOnt worry muni bujchou :P
+=======================================================================
+Admin delete huda tyo admin ko product ni delete huncha
+normal admin cannot access admins.php which has all the CRUD of admins
+=====================================================================
+Admin Review Section
+FIrst ma review user le add garda tesko status 1 huncha nai admin panel ma DOnt Allow vanera dekhoucha
+teasmai click gareo vane allow huncha nai status 0 huncha
+front end ma ni tei milako cha status 0 mattra tanne vanera
+=======================================================================
+email is in classAdminProduct line 53 function named sendEmail, it is commented inside function addproduct function on  line 132
+===================================================
+
 ul {
   list-style-type: none;
   margin: 0;

@@ -1,7 +1,7 @@
 <?php include_once('include/_header.php'); ?>
 <?php
-$id=$_GET['id'];
-$category=$cat->showOneCategory($id);
+$id = $_GET['id'];
+$category = $cat->showOneCategory($id);
 ?>
 <div class="grid-10">
     <?php include('include/_sidebar.php') ?>
@@ -18,7 +18,7 @@ $category=$cat->showOneCategory($id);
                     </tr>
                     <tr>
                         <td>Category</td>
-                        <td><input type="text" name="category" value="<?php echo $category['category'];?>"></td>
+                        <td><input type="text" name="category" value="<?php echo $category['category']; ?>"></td>
                         <input type="hidden" name="type" value="editCategory">
                         <input type="hidden" name="id" value="<?php echo $category['id']; ?>">
                     </tr>

@@ -68,41 +68,6 @@ class adminActivity extends dbConnect
 
     }
 
-//    public function adminDelete($id)
-//    {
-//        if($_SESSION['type']!=="0"){
-//            header('location: index.php');
-//            die;
-//        }
-//        dbConnect::dbConnection();
-//        $sql=$this->pdo->prepare("DELETE FROM admin WHERE id= :id");
-//        $values=[
-//            'id'=>$id
-//        ];
-//        if($sql->execute($values))
-//        {
-//            echo "<script> alert('Admin Deleted');</script>";
-//        }
-//        else{
-//            echo "<script> alert('Admin not Deleted');</script>";
-//        }
-//    }
-
-//    public function adminEdit($id,$name,$email,$password,$address)
-//    {
-//        if($_SESSION['type']!=="0"){
-//            header('location: index.php');
-//            die;
-//        }
-//        else{
-//            $type=1;
-//            dbConnect::dbConnection();
-//
-//            $sqlDelete = "UPDATE admin SET name= = 0 WHERE id = $id DELETE FROM admin WHERE id='$id'";
-//            mysqli_query($this->db, $sqlDelete);
-//        }
-//
-//    }
     public function getAdmin()
     {
         $getArray = array();
@@ -163,18 +128,16 @@ class adminActivity extends dbConnect
             die;
         }
         dbConnect::dbConnection();
-        $sql=$this->pdo->prepare("UPDATE admin SET name= :name,email= :email,address= :address WHERE id = :id");
-        $values=[
-            'id'=>$id,
-            'name'=>$name,
-            'email'=>$email,
-            'address'=>$address
+        $sql = $this->pdo->prepare("UPDATE admin SET name= :name,email= :email,address= :address WHERE id = :id");
+        $values = [
+            'id' => $id,
+            'name' => $name,
+            'email' => $email,
+            'address' => $address
         ];
-        if($sql->execute($values))
-        {
+        if ($sql->execute($values)) {
             echo "<script> alert('Admin Updated');</script>";
-        }
-        else{
+        } else {
             echo "<script> alert('Admin not Updated');</script>";
         }
     }
