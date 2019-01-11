@@ -56,11 +56,11 @@ $user=new userActivity();
     </ul>
 
     <address>
-        <p> <?php if(@$_SESSION['uid']==""){ ?>
+        <p> <?php if(@$_SESSION['id']==""){ ?>
                 <a href="login.php" class="red">Login</a>|<a href="register.php" class="yellow">Register</a></p>
         <?php }
         else{ ?>
-            logged in <?php echo $_SESSION['uname']; ?>
+            logged in <?php echo $_SESSION['name']; ?>
             <?php
         }?>
         <p>We are open 9-5, 7 days a week. Call us on

@@ -42,7 +42,7 @@ foreach($displayId as  $showProduct){
             <em><?php echo $showReview['date']; ?></em>
             <?php  $pid='https://www.facebook.com/sharer/sharer.php?u=product.php?id='.$_GET['id']; ?>
             <a href='<?php echo $pid; ?>' target='_blank'>
-                Share on Facebook
+                Share this on facebook?
             </a>
         </div>
     </li>

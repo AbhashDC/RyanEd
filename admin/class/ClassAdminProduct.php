@@ -8,23 +8,24 @@ class displayAdminProduct extends dbConnect
 {
     public function getAdminProduct()
     {
-        $getArray = array();
+        $getArray=array();
         dbConnect::dbConnection();
-        $sql = "SELECT * FROM product ORDER BY `date` ASC";
-        $result = mysqli_query($this->db, $sql);
-        while ($var = mysqli_fetch_array($result)) {
-            $getArray[] = $var;
+        $sql = $this->pdo->query("SELECT * FROM product ORDER BY date ASC");
+        while($row=$sql->fetch())
+        {
+            $getArray[]=$row;
         }
         return $getArray;
     }
 
     public function getFeaturedProduct()
     {
+
         dbConnect::dbConnection();
-        $sql = "SELECT * FROM product WHERE featured = 0";
-        $result = mysqli_query($this->db, $sql);
-        while ($var = mysqli_fetch_array($result)) {
-            $getArray = $var;
+        $sql = $this->pdo->query("SELECT * FROM product WHERE featured=0 ORDER BY id ASC");
+        while($row=$sql->fetch())
+        {
+            $getArray=$row;
         }
         return @$getArray;
     }
@@ -32,28 +33,40 @@ class displayAdminProduct extends dbConnect
     public function updateFeaturedProduct($id)
     {
         dbConnect::dbConnection();
+        $sql=$this->pdo->prepare("UPDATE product SET featured= :featured");
+        $values=[
 
-        $sql1 = "UPDATE product SET featured = 1";
-        mysqli_query($this->db, $sql1);
-
-        $sql = "UPDATE product SET featured = 0 WHERE id = $id";
-        mysqli_query($this->db, $sql);
-
+            'featured'=>'1'
+        ];
+        if($sql->execute($values))
+        {
+            $sql1=$this->pdo->prepare("UPDATE product SET featured= :featured WHERE id = :id");
+            $values1=[
+                'id'=>$id,
+                'featured'=>'0'
+            ];
+            if($sql1->execute($values1)){
+                echo "<script> alert('Featured Product Updated');</script>";
+            }
+        }
+        else{
+            echo "<script> alert('Featured Product not Updated');</script>";
+        }
     }
 
     public function sendEmail($title, $price, $description)
     {
+        dbConnect::dbConnection();
         $message = $description . " " . "for just $" . $price;
         $subject = $title . "-" . "New Product";
         $message = wordwrap($message, 70);
-        $getEmailData = "SELECT * FROM USER";
-        $data = mysqli_query($this->db, $getEmailData);
-        while ($arrayOfData = mysqli_fetch_array($data)) {
-            $email = $arrayOfData['email'];
+
+        $sql = $this->pdo->query("SELECT * FROM user ");
+        while($row=$sql->fetch())
+        {
+            $email = $row['email'];
             mail("$email", "$subject", $message);
         }
-
-
     }
 
     public function addProduct($title, $price, $manufacturer, $description, $category)
@@ -79,7 +92,6 @@ class displayAdminProduct extends dbConnect
             $ok = 1;
             $imageName = basename($_FILES["coverToUpload"]["name"]);
             $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
-
             $validate = getimagesize($_FILES["coverToUpload"]["tmp_name"]);
             if ($validate !== false) {
                 // echo "File is an image - " . $check["mime"] . ".";
@@ -88,8 +100,14 @@ class displayAdminProduct extends dbConnect
                 // echo "File is not an image.";
                 $ok = 0;
             }
+
+            // Allow certain file formats
+            if($imageFileType != "jpg" && $imageFileType != "JPG" && $imageFileType != "jpeg" && $imageFileType != "JPEG"&& $imageFileType != "PNG" && $imageFileType != "png" ) {
+                echo "Sorry, only jpg, png files are allowed.";
+                $uploadOk = 0;
+            }
             // Check file size
-            if ($_FILES["coverToUpload"]["size"] > 50000000) {
+            if ($_FILES["coverToUpload"]["size"] > 2000000) {
                 echo "Sorry, your file is too large.";
                 $ok = 0;
             }
@@ -101,11 +119,23 @@ class displayAdminProduct extends dbConnect
             } else {
                 if (move_uploaded_file($_FILES["coverToUpload"]["tmp_name"], $target_file)) {
                     echo "The file " . basename($_FILES["coverToUpload"]["name"]) . " has been uploaded.";
+                    $sql=$this->pdo->prepare("INSERT INTO product set title=:title,price=:price,manufacturer=:manufacturer,description=:description,category=:category,featured=:featured,img_name=:db,date=:date,admin_id=:aid,admin_name=:aname");
+                    $values=[
+                        'title'=>$title,
+                        'price'=>$price,
+                        'manufacturer'=>$manufacturer,
+                        'description'=>$description,
+                        'category'=>$category,
+                        'featured'=>'1',
+                        'db'=>$db,
+                        'date'=>$date,
+                        'aid'=>$aid,
+                        'aname'=>$aname
 
-                    $sqlInsert = "INSERT INTO product set title='$title',price='$price',manufacturer='$manufacturer',description='$description',category='$category',featured='1',img_name='$db',date='$date',admin_id='$aid',admin_name='$aname'";
-                    $result = mysqli_query($this->db, $sqlInsert);
-                    if ($result) {
-                        //displayAdminProduct::sendEmail($title,$price,$description);
+                    ];
+                    if($sql->execute($values))
+                    {
+                        //displayAdminProduct::sendEmail($title,$price,$description); //sends email but commented
                         echo "<script> alert('Product Added');</script>";
                     } else {
                         echo "<script> alert('Product not added');</script>";
@@ -117,20 +147,24 @@ class displayAdminProduct extends dbConnect
 
     public function editProduct($id, $title, $price, $manufacturer, $description, $category)
     {
-        //date_default_timezone_set('Asia/Kathmandu');
-        //$date= date("Y-m-d");
+
         if (!isset($_SESSION['type'])) {
             header('location: index.php');
             die;
         }
-
-
         dbConnect::dbConnection();
         if (!isset($_FILES['coverToUpload']) || $_FILES['coverToUpload']['error'] == UPLOAD_ERR_NO_FILE) {
-            $sqlInsert = "UPDATE product set title='$title',price='$price',manufacturer='$manufacturer',description='$description',category='$category' WHERE id = $id";
-            $result = mysqli_query($this->db, $sqlInsert);
-            if ($result) {
-                //displayAdminProduct::sendEmail($title,$price,$description);
+            $sql=$this->pdo->prepare("UPDATE product set title=:title,price=:price,manufacturer=:manufacturer,description=:description,category=:category WHERE id = :id");
+            $values=[
+                'title'=>$title,
+                'price'=>$price,
+                'manufacturer'=>$manufacturer,
+                'description'=>$description,
+                'category'=>$category,
+                'id'=>$id
+            ];
+            if($sql->execute($values))
+             {
                 echo "<script> alert('Product Updated');</script>";
             } else {
                 echo "<script> alert('Product not added');</script>";
@@ -154,7 +188,7 @@ class displayAdminProduct extends dbConnect
                 $ok = 0;
             }
             // Check file size
-            if ($_FILES["coverToUpload"]["size"] > 50000000) {
+            if ($_FILES["coverToUpload"]["size"] > 2000000) {
                 echo "Sorry, your file is too large.";
                 $ok = 0;
             }
@@ -166,21 +200,33 @@ class displayAdminProduct extends dbConnect
             } else {
                 if (move_uploaded_file($_FILES["coverToUpload"]["tmp_name"], $target_file)) {
                     echo "The file " . basename($_FILES["coverToUpload"]["name"]) . " has been uploaded.";
-                    $sqlDelImg = "SELECT * from product where id = $id";
-                    $delImg = mysqli_query($this->db, $sqlDelImg);
-                    while ($row = mysqli_fetch_array($delImg)) {
+                    $sql=$this->pdo->prepare("SELECT * FROM product WHERE id= :id");
+                    $values=[
+                        'id'=>$id
+                    ];
+                    $sql->execute($values);
+                    while($var=$sql->fetch(PDO::FETCH_ASSOC))
+                    {
                         $low = "../";
-                        $img = $low . $row["img_name"];
+                        $img = $low . $var["img_name"];
                         unlink($img);
                     }
 
-                    $sqlInsert = "UPDATE product set title='$title',price='$price',manufacturer='$manufacturer',description='$description',category='$category',img_name='$db' WHERE id =$id";
-                    $result = mysqli_query($this->db, $sqlInsert);
-                    if ($result) {
+                    $sql=$this->pdo->prepare("UPDATE product set title=:title,price=:price,manufacturer=:manufacturer,description=:description,category=:category,img_name=:db WHERE id = :id");
+                    $values=[
+                        'title'=>$title,
+                        'price'=>$price,
+                        'manufacturer'=>$manufacturer,
+                        'description'=>$description,
+                        'category'=>$category,
+                        'db'=>$db,
+                        'id'=>$id
+                    ];
+                    if($sql->execute($values)) {
                         //displayAdminProduct::sendEmail($title,$price,$description);
-                        echo "<script> alert('Product Added');</script>";
+                        echo "<script> alert('Product Updated');</script>";
                     } else {
-                        echo "<script> alert('Product not added');</script>";
+                        echo "<script> alert('Product not Updated');</script>";
                     }
                 }
             }
@@ -190,29 +236,44 @@ class displayAdminProduct extends dbConnect
     public function deleteProduct($id)
     {
         dbConnect::dbConnection();
-        $sqlSel = "SELECT * FROM product WHERE `id`=$id";
-        $data = mysqli_query($this->db, $sqlSel);
-        while ($row = mysqli_fetch_array($data)) {
+        $sql = $this->pdo->prepare("SELECT * FROM product WHERE id= :id");
+        $values = [
+            'id' => $id
+        ];
+        $sql->execute($values);
+        while ($var = $sql->fetch()) {
             $low = "../";
-            $img = $low . $row["img_name"];
+            $img = $low . $var["img_name"];
             unlink($img);
         }
-        $sql2 = "DELETE from product where id=$id";
-        $delete = mysqli_query($this->db, $sql2);
-        if ($delete) {
+        $sql1 = $this->pdo->prepare("DELETE FROM product WHERE id= :id");
+        $values1 = [
+            'id' => $id
+        ];
+        if ($sql1->execute($values1))
+        {
             echo "<script> alert('Product Deleted');</script>";
         } else {
             echo "Error in product deletion";
         }
+
+
+
     }
+
+
 
     public function showOneProduct($id)
     {
         dbConnect::dbConnection();
-        $sql = "SELECT * FROM product where id=$id";
-        $result = mysqli_query($this->db, $sql);
-        while ($var = mysqli_fetch_array($result)) {
-            $getArray = $var;
+        $sql=$this->pdo->prepare("SELECT * FROM product WHERE id= :id");
+        $values=[
+            'id'=>$id
+        ];
+        $sql->execute($values);
+        while($var=$sql->fetch(PDO::FETCH_ASSOC))
+        {
+            $getArray=$var;
         }
         return $getArray;
     }

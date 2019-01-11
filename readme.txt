@@ -27,6 +27,10 @@ li a:hover {
 
 https://www.youtube.com/watch?v=kEW6f7Pilc4------Learnt pdo
 
-https://stackoverflow.com/questions/16463030/how-to-add-facebook-share-button-on-my-website --sharebutton
+https://stackoverflow.com/questions/16463030/how-to-add-facebook-share-button-on-my-website --sharebutton --sharer in _productdetail.php line 43
 
 https://stackoverflow.com/questions/6249707/check-if-php-session-has-already-started---checking session started
+
+$_SERVER['REQUEST_METHOD']==POST----extract($_post)-----search and find in sttackoverflow as an useful and another way to get variable form post and extract them
+w3school image upload---for image upload in product
+w3school email---for email in classAdminProduct line 57, it is commented inside function addproduct line 139

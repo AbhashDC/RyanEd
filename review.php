@@ -8,7 +8,7 @@ $displayUserReview=($product->getUserReview($user_id));?>
         <?php foreach($displayUserReview as  $showReview){
             ?>
             <li>
-                <p>Product: <?php echo $product->productName($showReview['product_id']); ?></p>
+                <p>Product: <?php  echo $product->productName($showReview['product_id'])['0']['title']; ?></p>
                 <p><?php echo $showReview['review']; ?> </p>
 
                 <div class="details">

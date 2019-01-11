@@ -18,6 +18,9 @@
              Name
           </th>
           <th>
+              Product Name
+          </th>
+          <th>
               Review
           </th>
           <th>
@@ -33,8 +36,10 @@
       <?php
 
       $review=$rev->showReview();
+
       foreach($review as $reviews)
       {
+          $product_name=$rev->showReviewProductName($reviews['product_id']);
       ?>
       <tr>
           <td>
@@ -42,6 +47,9 @@
           </td>
           <td>
              <?php echo $reviews['user_name']; ?>
+          </td>
+          <td>
+              <?php echo $product_name['title']; ?>
           </td>
           <td>
               <?php echo $reviews['review']; ?>

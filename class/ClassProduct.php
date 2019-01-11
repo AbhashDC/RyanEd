@@ -6,25 +6,11 @@ include_once('DbConfig.php');
 
 class displayProduct extends dbConnect
 {
-
-
-    public function getProduct()
-    {
-        $getArray=array();
-        dbConnect::dbConnection();
-        $sql=$this->pdo->query("SELECT * FROM product ORDER BY `date` ASC");
-        while($row=$sql->fetch())
-        {
-            $getArray[]=$row;
-
-        }
-        return $getArray;
-    }
     public function search($category)
     {
         $getArray=array();
         dbConnect::dbConnection();
-        $sql=$this->pdo->prepare("SELECT * FROM product WHERE category LIKE  :category");
+        $sql=$this->pdo->prepare("SELECT * FROM product WHERE category = :category");
         $values=[
             'category'=>$category
         ];
@@ -58,9 +44,10 @@ class displayProduct extends dbConnect
         $getArray=array();
         dbConnect::dbConnection();
 
-        $sql=$this->pdo->prepare("SELECT * FROM review WHERE product_id = :id");
+        $sql=$this->pdo->prepare("SELECT * FROM review WHERE product_id = :id AND status= :status");
         $values=[
-            'id'=>$id
+            'id'=>$id,
+            'status'=>'0'
         ];
         $sql->execute($values);
         while($var=$sql->fetch())
@@ -96,7 +83,7 @@ class displayProduct extends dbConnect
             'id'=>$id
         ];
         $sql->execute($values);
-        while($var=$sql->fetch())
+        while($var=$sql->fetch(PDO::FETCH_ASSOC))
         {
             $getArray[]=$var;
         }
@@ -107,11 +94,9 @@ class displayProduct extends dbConnect
         $getArray=array();
         dbConnect::dbConnection();
 
-        $sql=$this->pdo->prepare("SELECT * FROM product WHERE title LIKE :item");
-        $values=[
-            'item'=>$item
-        ];
-        $sql->execute($values);
+        $sql=$this->pdo->prepare("SELECT * FROM product WHERE title LIKE ?");
+        $sql->bindValue(1, "%$item%", PDO::PARAM_STR);
+        $sql->execute();
         while($var=$sql->fetch())
         {
             $getArray[]=$var;
@@ -122,7 +107,7 @@ class displayProduct extends dbConnect
     {
         $getArray=array();
         dbConnect::dbConnection();
-        $sql=$this->pdo->query("SELECT * FROM product WHERE `featured` = :feat");
+        $sql=$this->pdo->prepare("SELECT * FROM product WHERE `featured` = :feat");
         $values=[
             'feat'=>'0'
         ];
@@ -130,6 +115,17 @@ class displayProduct extends dbConnect
         while($var=$sql->fetch())
         {
             $getArray[]=$var;
+        }
+        return $getArray;
+    }
+    public function getProduct()
+    {
+        $getArray=array();
+        dbConnect::dbConnection();
+        $sql = $this->pdo->query("SELECT * FROM product BY date ASC");
+        while($row=$sql->fetch(PDO::FETCH_ASSOC))
+        {
+            $getArray[]=$row;
         }
         return $getArray;
     }

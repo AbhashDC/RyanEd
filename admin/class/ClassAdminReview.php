@@ -8,35 +8,39 @@ class adminReview extends dbConnect
     {
         $getArray=array();
         dbConnect::dbConnection();
-        $sql="SELECT * FROM review ORDER BY `date` ASC";
-        $result=mysqli_query($this->db,$sql);
-        while($var=mysqli_fetch_array($result))
+        $sql = $this->pdo->query("SELECT * FROM review  ORDER BY date ASC");
+        while($row=$sql->fetch())
         {
-            $getArray[]=$var;
+            $getArray[]=$row;
         }
         return $getArray;
 
     }
     public function showReviewProductName($id)
     {
-        $getArray=array();
         dbConnect::dbConnection();
-        $sql="SELECT * FROM product WHERE id=$id ";
-        $result=mysqli_query($this->db,$sql);
-        while($var=mysqli_fetch_array($result))
+        $sql=$this->pdo->prepare("SELECT * FROM product WHERE id= :id");
+        $values=[
+            'id'=>$id
+        ];
+        $sql->execute($values);
+        while($var=$sql->fetch())
         {
-            $getArray[]=$var;
+            $getArray=$var;
         }
-        return $getArray;
+        return @$getArray;
 
     }
 
     public function enableReview($id)
     {
         dbConnect::dbConnection();
-        $sql="UPDATE review SET status='0' WHERE id = $id";
-        $result=mysqli_query($this->db,$sql);
-       if($result)
+        $sql=$this->pdo->prepare("UPDATE review SET status= :status WHERE id = :id");
+        $values=[
+            'id'=>$id,
+            'status'=>'0'
+        ];
+        if($sql->execute($values))
        {
            echo"<script> alert('Review is Updated'); </script>";
        }
@@ -48,9 +52,12 @@ class adminReview extends dbConnect
     public function disableReview($id)
     {
         dbConnect::dbConnection();
-        $sql="UPDATE review SET status='1' WHERE id = $id";
-        $result=mysqli_query($this->db,$sql);
-        if($result)
+        $sql=$this->pdo->prepare("UPDATE review SET status= :status WHERE id = :id");
+        $values=[
+            'id'=>$id,
+            'status'=>'1'
+        ];
+        if($sql->execute($values))
         {
             echo"<script> alert('Review is Updated'); </script>";
         }
