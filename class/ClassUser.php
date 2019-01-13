@@ -5,7 +5,7 @@ ob_start();
 
 include_once('DbConfig.php');
 
-class userActivity extends dbconnect
+class userActivity extends dbConnect
 {
     public function userRegister($name, $email, $password, $address) //Function which registers user from public view
     {
