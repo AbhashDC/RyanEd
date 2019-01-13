@@ -5,7 +5,7 @@ include_once('session.php');
 
 class adminCategory extends dbConnect
 {
-    public function showCategory()
+    public function showCategory() //returns all the category
     {
         $getArray = array();
         dbConnect::dbConnection();
@@ -16,7 +16,7 @@ class adminCategory extends dbConnect
         return $getArray;
     }
 
-    public function showOneCategory($id)
+    public function showOneCategory($id) //returns one category details for edit
     {
         dbConnect::dbConnection();
         $sql = $this->pdo->prepare("SELECT * FROM category WHERE id= :id");
@@ -31,7 +31,7 @@ class adminCategory extends dbConnect
     }
 
 
-    public function addCategory($category)
+    public function addCategory($category) //inserts one category in database
     {
         dbConnect::dbConnection();
         $sql = $this->pdo->prepare("INSERT INTO category SET category= :category");
@@ -45,7 +45,7 @@ class adminCategory extends dbConnect
         }
     }
 
-    public function deleteCategory($id)
+    public function deleteCategory($id) //deletes category
     {
         dbConnect::dbConnection();
         $sql = $this->pdo->prepare("DELETE FROM category WHERE id= :id");
@@ -59,8 +59,8 @@ class adminCategory extends dbConnect
         }
     }
 
-    public function updateCategory($id, $category)
-    {
+    public function updateCategory($id, $category) //updates category
+        {
         dbConnect::dbConnection();
         $sql = $this->pdo->prepare("UPDATE category SET category= :category WHERE id = :id");
         $values = [

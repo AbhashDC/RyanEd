@@ -6,7 +6,7 @@ include_once('DbConfig.php');
 
 class displayProduct extends dbConnect
 {
-    public function search($category)
+    public function search($category) //Finds product with same category and returns it
     {
         $getArray = array();
         dbConnect::dbConnection();
@@ -21,7 +21,7 @@ class displayProduct extends dbConnect
         return $getArray;
     }
 
-    public function findId($id)
+    public function findId($id) //Finds a specific product and returns its data
     {
         $getArray = array();
         dbConnect::dbConnection();
@@ -37,7 +37,7 @@ class displayProduct extends dbConnect
 
     }
 
-    public function getReview($id)
+    public function getReview($id) //Finds all review with a specific product id and returns it
     {
         $getArray = array();
         dbConnect::dbConnection();
@@ -54,7 +54,7 @@ class displayProduct extends dbConnect
         return $getArray;
     }
 
-    public function getUserReview($id)
+    public function getUserReview($id) //Finds all the review of a particular user and returns it
     {
         $getArray = array();
         dbConnect::dbConnection();
@@ -69,7 +69,7 @@ class displayProduct extends dbConnect
         return $getArray;
     }
 
-    public function productName($id)
+    public function productName($id)  //Function which returns a specific product
     {
 
         dbConnect::dbConnection();
@@ -85,7 +85,7 @@ class displayProduct extends dbConnect
         return $getArray;
     }
 
-    public function searchItems($item)
+    public function searchItems($item) //This function searches the user input and returns all the result as an array
     {
         $getArray = array();
         dbConnect::dbConnection();
@@ -99,7 +99,7 @@ class displayProduct extends dbConnect
         return $getArray;
     }
 
-    public function sideBar()
+    public function sideBar() //Displays the sidebar of our system and pulls the fetaured product from database and returns all the result as an array
     {
         $getArray = array();
         dbConnect::dbConnection();
@@ -114,7 +114,7 @@ class displayProduct extends dbConnect
         return $getArray;
     }
 
-    public function getProduct()
+    public function getProduct() //Displays all the product ordering by latest date
     {
         $getArray = array();
         dbConnect::dbConnection();

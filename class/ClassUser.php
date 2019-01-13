@@ -7,7 +7,7 @@ include_once('DbConfig.php');
 
 class userActivity extends dbconnect
 {
-    public function userRegister($name, $email, $password, $address)
+    public function userRegister($name, $email, $password, $address) //Function which registers user from public view
     {
         dbConnect::dbConnection();
         $encPassword = md5($password);
@@ -37,7 +37,7 @@ class userActivity extends dbconnect
 
     }
 
-    public function userLogin($email, $password)
+    public function userLogin($email, $password) //Function which logsIn user from public view
     {
         dbConnect::dbConnection();
         $encPassword = md5($password);
@@ -63,7 +63,7 @@ class userActivity extends dbconnect
 
     }
 
-    public function userReview($review, $id)
+    public function userReview($review, $id) //Function which stores the review wrote by user  in a specific product
     {
 
         if (@$_SESSION['id'] == "") {

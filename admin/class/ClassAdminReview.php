@@ -4,7 +4,7 @@ include_once('../class/DbConfig.php');
 include_once('session.php');
 class adminReview extends dbConnect
 {
-    public function showReview()
+    public function showReview() //Lists all the review to the admin panel. It returns all the review data
     {
         $getArray=array();
         dbConnect::dbConnection();
@@ -16,7 +16,7 @@ class adminReview extends dbConnect
         return $getArray;
 
     }
-    public function showReviewProductName($id)
+    public function showReviewProductName($id) //returns a single product detail to admin panel
     {
         dbConnect::dbConnection();
         $sql=$this->pdo->prepare("SELECT * FROM product WHERE id= :id");
@@ -32,7 +32,7 @@ class adminReview extends dbConnect
 
     }
 
-    public function enableReview($id)
+    public function enableReview($id) //Updates the status of the review to 0 which is meant to show in public
     {
         dbConnect::dbConnection();
         $sql=$this->pdo->prepare("UPDATE review SET status= :status WHERE id = :id");
@@ -49,7 +49,7 @@ class adminReview extends dbConnect
        }
     }
 
-    public function disableReview($id)
+    public function disableReview($id) //Updates the status of the review to 1 which is not meant to show in public
     {
         dbConnect::dbConnection();
         $sql=$this->pdo->prepare("UPDATE review SET status= :status WHERE id = :id");

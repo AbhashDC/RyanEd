@@ -6,7 +6,7 @@ include_once('../class/DbConfig.php');
 
 class displayAdminProduct extends dbConnect
 {
-    public function getAdminProduct()
+    public function getAdminProduct()  //returns product ordering it by recent date
     {
         $getArray = array();
         dbConnect::dbConnection();
@@ -17,7 +17,7 @@ class displayAdminProduct extends dbConnect
         return $getArray;
     }
 
-    public function getFeaturedProduct()
+    public function getFeaturedProduct() //returns currently featured product
     {
 
         dbConnect::dbConnection();
@@ -28,7 +28,7 @@ class displayAdminProduct extends dbConnect
         return @$getArray;
     }
 
-    public function updateFeaturedProduct($id)
+    public function updateFeaturedProduct($id) //updates featured product by setting it to 0 and rest of the products to 1
     {
         dbConnect::dbConnection();
         $sql = $this->pdo->prepare("UPDATE product SET featured= :featured");
@@ -50,7 +50,7 @@ class displayAdminProduct extends dbConnect
         }
     }
 
-    public function sendEmail($title, $price, $description)
+    public function sendEmail($title, $price, $description) //This sends email when new product is added although it doesnt work  here
     {
         dbConnect::dbConnection();
         $message = $description . " " . "for just $" . $price;
@@ -64,7 +64,7 @@ class displayAdminProduct extends dbConnect
         }
     }
 
-    public function addProduct($title, $price, $manufacturer, $description, $category)
+    public function addProduct($title, $price, $manufacturer, $description, $category) //adds product with an image
     {
         date_default_timezone_set('Asia/Kathmandu');
         $date = date("Y-m-d");
@@ -129,7 +129,7 @@ class displayAdminProduct extends dbConnect
 
                     ];
                     if ($sql->execute($values)) {
-                        //displayAdminProduct::sendEmail($title,$price,$description); //sends email but commented
+                        //displayAdminProduct::sendEmail($title,$price,$description); //sends email but commented beecause it will throw error if we run it on local server
                         echo "<script> alert('Product Added');</script>";
                     } else {
                         echo "<script> alert('Product not added');</script>";
@@ -139,7 +139,7 @@ class displayAdminProduct extends dbConnect
         }
     }
 
-    public function editProduct($id, $title, $price, $manufacturer, $description, $category)
+    public function editProduct($id, $title, $price, $manufacturer, $description, $category) //edits product with or without image
     {
 
         if (!isset($_SESSION['type'])) {
@@ -225,7 +225,7 @@ class displayAdminProduct extends dbConnect
         }
     }
 
-    public function deleteProduct($id)
+    public function deleteProduct($id) //deletes product along with its review
     {
         dbConnect::dbConnection();
         $sql = $this->pdo->prepare("SELECT * FROM product WHERE id= :id");
@@ -257,7 +257,7 @@ class displayAdminProduct extends dbConnect
     }
 
 
-    public function showOneProduct($id)
+    public function showOneProduct($id) //displays one product for edit
     {
         dbConnect::dbConnection();
         $sql = $this->pdo->prepare("SELECT * FROM product WHERE id= :id");

@@ -6,7 +6,7 @@ include_once('../class/DbConfig.php');
 
 class adminActivity extends dbConnect
 {
-    public function adminLogin($email, $password)
+    public function adminLogin($email, $password) //Logs into admin and sets session variable
     {
         dbConnect::dbConnection();
         $encPassword = md5($password);
@@ -32,7 +32,7 @@ class adminActivity extends dbConnect
         }
     }
 
-    public function adminRegister($name, $email, $password, $address)
+    public function adminRegister($name, $email, $password, $address) //Checks for multiple emails and if it is true then it wont register else it will
     {
         if ($_SESSION['type'] !== "0") {
             header('location: index.php');
@@ -68,7 +68,7 @@ class adminActivity extends dbConnect
 
     }
 
-    public function getAdmin()
+    public function getAdmin() //Lists all the admins
     {
         $getArray = array();
         dbConnect::dbConnection();
@@ -79,7 +79,7 @@ class adminActivity extends dbConnect
         return $getArray;
     }
 
-    public function showOneAdmin($id)
+    public function showOneAdmin($id) //returns data of a particular admin
     {
         dbConnect::dbConnection();
         $sql = $this->pdo->prepare("SELECT * FROM admin WHERE id= :id");
@@ -93,15 +93,15 @@ class adminActivity extends dbConnect
         return @$getArray;
     }
 
-    public function deleteAdmin($id)
+    public function deleteAdmin($id) //Deletes admin, product posted by that admin, review related to that product
     {
         if ($_SESSION['type'] !== "0") {
             header('location: index.php');
-            die;
+
         }
 
         dbConnect::dbConnection();
-        $sql1 = $this->pdo->prepare("SELECT * FROM product WHERE admin_id= :id");
+        $sql1 = $this->pdo->prepare("SELECT * FROM product WHERE admin_id= :id"); //selects product related to admin and then deletes image
         $values1 = [
             'id' => $id
         ];
@@ -109,19 +109,19 @@ class adminActivity extends dbConnect
         while ($var1 = $sql1->fetch()) {
             $low = "../";
             $img = $low . $var1["img_name"];
-            unlink($img);
-            $sql5 = $this->pdo->prepare("DELETE FROM review WHERE product_id= :id");
+            unlink($img);  //deletes product image
+            $sql5 = $this->pdo->prepare("DELETE FROM review WHERE product_id= :id"); //deletes review related to that product
             $values5 = [
                 'id' => $var1['id']
             ];
             $sql5->execute($values5);
         }
-        $sql = $this->pdo->prepare("DELETE FROM admin WHERE id= :id");
+        $sql = $this->pdo->prepare("DELETE FROM admin WHERE id= :id"); //deletes admin
         $values = [
             'id' => $id
         ];
         if ($sql->execute($values)) {
-            $sql1 = $this->pdo->prepare("DELETE FROM product WHERE admin_id= :id");
+            $sql1 = $this->pdo->prepare("DELETE FROM product WHERE admin_id= :id"); //deletes product by admin
             $values1 = [
                 'id' => $id
             ];
@@ -136,11 +136,11 @@ class adminActivity extends dbConnect
         }
     }
 
-    public function updateAdmin($id, $name, $email, $address)
+    public function updateAdmin($id, $name, $email, $address) //Updates the detial of admin except for password
     {
-        if ($_SESSION['type'] !== "0") {
+        if ($_SESSION['type'] != "0") {
             header('location: index.php');
-            die;
+
         }
         dbConnect::dbConnection();
         $sql = $this->pdo->prepare("UPDATE admin SET name= :name,email= :email,address= :address WHERE id = :id");

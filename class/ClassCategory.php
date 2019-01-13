@@ -5,7 +5,7 @@ include_once('DbConfig.php');
 class displayCategory extends dbConnect
 {
 
-    public function getCategory()
+    public function getCategory()  //returns all the category that we have in database
     {
         $getArray = array();
         dbConnect::dbConnection();
